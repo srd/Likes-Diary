@@ -1,0 +1,222 @@
+#topbar {
+    width: 100%;
+    height: 66px; 
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    z-index: -1; 
+    background: url("../images/header.jpg") no-repeat scroll center center #dae9ea;
+}
+#welcometopbar {
+    width: 100%;
+    min-width:1000px;
+    height: 150px; 
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    z-index: -1; 
+    background: url("../images/welcome_header.jpg") no-repeat scroll center center #6EAAEB;
+}
+#wrap {
+    margin:10px auto;
+    padding:0px 0px;
+    width: 995px;
+}
+#welcomewrap {
+    margin:150 auto;
+    padding:10px 40px;
+    position: fixed;
+}
+#mainbar {
+    float: right;
+    min-height: 800px;
+    width: 700px;
+    margin: 106px 0px 0 0px;
+    border-right: 2px solid #666666;
+    position:relative;
+    z-index:20;
+}
+
+#head{
+    width: 700px;
+    height: 65px;
+    margin: 4px;
+}
+#leftsidebar {
+    position: fixed;
+}
+#leftheader {
+    width: 290px;
+    height: 108px;
+    background: url("../images/logosmall.png") no-repeat;
+    margin:6px 0 0 4px;
+}
+
+#leftcontent {
+    width: 290px;
+    min-height: 550px;
+    padding: 0 1px;
+    background-color: #fff;
+    border-top: 2px solid #666666;
+    border-right: 2px solid #666666;
+    border-left: 2px solid #666666;
+    overflow:hidden;
+}
+
+#searchbox {
+    background: url("../searchbox.png") no-repeat;
+    width:315px;
+    height:60px;
+}
+#userbox{
+    width: 290px;
+    height: 270px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 0 0 0px;
+    margin:0px 0 0 0px;
+}
+#userinfo{
+    width: 287px;
+    height: 200px;
+    background-color: #fff;
+    margin: 0px 0px 0 0px;
+}
+
+#infolink{
+    width: 289px;
+    height: 66px;
+    background-color: #fff;
+}
+
+#button{
+    width: 135px;
+    height: 55px;
+    background: url("../images/button.png") no-repeat;
+    margin: 0px 4px 0 3px;
+}
+
+#button a:link
+    {
+    display:block;
+    font-weight:bold;
+    color:#227784;
+    width: 135px;
+    height: 55px;
+    text-align: center;
+}
+
+#button a:hover,a:active,a:visited{
+    background: url("../images/button_selected.png")no-repeat;
+    color: white;
+}
+
+#button2{
+    width: 211px;
+    height: 65px;
+    background: url("../images/tab_bg.png") no-repeat;
+    margin: 0px 4px 0 3px;
+}
+
+#button2 a:link
+    {
+    display:block;
+    font-weight:bold;
+    color:#227784;
+    width: 211px;
+    height: 65px;
+    text-align: center;
+}
+
+#button2 a:hover,a:active,a:visited{
+    background: url("../images/button_bg.png")no-repeat;
+    color: white;
+}
+
+#mainbody{
+    width: 700px;
+    min-height: 800px;
+    border: 1px;
+}
+
+#leftfooter{
+    width: 290px;
+    min-height: 380px;
+    background-color: #fff;
+    overflow:hidden;
+}
+
+#newsfeed{
+    width: 289px;
+    height: 65px;
+    background-color: #bbd7d9;
+    margin: 30px 0 0 0px;
+}
+
+#newsfeed a:link
+    {
+    display:block;
+    font-weight:bold;
+    color:#227784;
+    width: 289px;
+    height: 65px;
+    text-align: center;
+    padding: 0px 0px;
+}
+
+#newsfeed a:hover,a:active,a:visited{
+    display:block;
+    font-weight:bold;
+    width: 289px;
+    height: 65px;
+    text-align: center;
+    background: url("../images/button_bg2.png")no-repeat scroll center center #dae9ea;
+    color: white;
+}
+
+
+#leftfootertabs{
+    width: 289px;
+    height: 65px;
+    background-color: #bbd7d9;
+    margin: 20px 0 0 0px;
+}
+
+#leftfootertabs a:link
+    {
+    display:block;
+    font-weight:bold;
+    color:#227784;
+    text-align: center;
+    padding: 0px 0px;
+}
+#leftfootertabs a:hover,a:active,a:visited{
+    display:block;
+    font-weight:bold;
+    width: 289px;
+    height: 65px;
+    text-align: center;
+    background: url("../images/button_bg2.png")no-repeat scroll center center #dae9ea;
+    color: white;
+}
+
+#platform{
+		width: 211px;
+		height: 145px;
+		background: transparent;
+		margin: 33 33 33 33;
+}
+#subcategorie1{
+		width: 211px;
+		height: 145px;
+		background: transparent;
+		border: 1px solid #ccc;
+		margin: 33 33 33 33;
+}
+#container1{
+    margin: 30px 0 0 0px;
+}
+
+#container2{
+    margin: 15px 0 0 0px;
+}

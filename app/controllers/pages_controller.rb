@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout "signuplogin", :only => [:home]
   def home
 	@user_session = UserSession.new
 	@user = User.new
@@ -16,5 +17,10 @@ class PagesController < ApplicationController
   def about
 	@title = "About Us"
   end
+	
+	def access
+		@title = "Access restricted"
+		#TODO *check* directly redirect to root path
+	end
 
 end

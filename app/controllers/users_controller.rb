@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+	layout 'profile', :except => [:new]
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update]
   def new
     @title = "Sign up"
     @user = User.new
+		render :layout => 'signuplogin'
   end
 
   def index
@@ -12,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = @current_user
+    @user = User.find(params[:id])
   end
 
   def edit

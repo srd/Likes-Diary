@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :correct_user, :is_admin?
 
   private
     def current_user_session
@@ -40,6 +40,17 @@ class ApplicationController < ActionController::Base
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end
-
-
+		
+		def correct_user?(user)
+			user == current_user
+		end
+		
+		def correct_user
+			@user = User.find(params[:id])
+			correct_user?(@user)
+		end
+		
+		def is_admin?
+			current_user.admin
+		end
 end

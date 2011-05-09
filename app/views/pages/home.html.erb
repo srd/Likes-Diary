@@ -1,7 +1,37 @@
-<h1>Welcome to home page of Likes Diary</h1>
-
-<%= form_for @user, :url => users_path do |f| %>
-  <% render 'shared/error_messages', :object => f.object %>
-  <%= render :partial => 'users/form', :object => f %>
-  <%= f.submit "Register" %>
+<% if !current_user %>	
+  <br/><br/><br/><br/>
+  <h1>Sign in</h1>
+  <%= form_for @user_session, :url => {:action => "create", :controller => "user_sessions"} do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
+	<table>
+	  <tr>
+			<td>
+				<div class="field">
+					<%= f.label :login %>
+					<%= f.text_field :login %>
+				</div>
+			</td>
+	  </tr>
+	  <tr>
+	    <td>
+		    <div class="field">
+					<%= f.label :password %>
+					<%= f.password_field :password %>
+				</div>
+			</td>
+	  </tr>
+	</table>
+	<div>
+	  <%= f.check_box :remember_me %>
+	  <%= f.label :remember_me %>
+	</div> //this might be removed later if it doesn't work
+	<div class="actions">
+	  <%= f.submit "Login" %>
+  </div>
 <% end %>
+<% else %>
+  <%= link_to "Account", users_path %>
+  <%= link_to "Logout", logout_path %>
+<% end %>
+
+<%= link_to "Sign up now!", signup_path %>

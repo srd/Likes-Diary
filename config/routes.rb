@@ -1,6 +1,7 @@
 Likesdiary::Application.routes.draw do
   resources :user_sessions
   resources :users
+	resources :cities
 
   get "user_sessions/new"
 

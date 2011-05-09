@@ -1,0 +1,8 @@
+Welcome to Likes Diary
+<br/><br/>List of all the cities<br/><br/>
+<% for city in @cities %>
+<%= city.cityname %><br/>
+<% end %>
+
+<%= link_to "Add a city", new_city_path %>
+
