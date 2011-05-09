@@ -1,6 +1,6 @@
 class CitiesController < ApplicationController
-	layout 'profile'
 	before_filter :is_admin?
+	layout 'profile'
   def new
 		@title = "New City"
 		@city = City.new

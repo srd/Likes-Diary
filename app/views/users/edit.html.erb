@@ -1,8 +1,19 @@
-<h1>Edit my accoun</h1>
+<h1>Edit my account</h1>
 
-<% form_for @user, :url => users_path do |f| %>
+<%= form_for @user, :url => user_path(current_user) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
-  <%= render :partial => 'form', :object => f %>
+  <div>
+		<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
+		<%= f.password_field :password %>
+	</div>
+	<div>
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation %>
+	</div>
+	<div>
+		<%= f.label :city_id %>
+		<%= f.collection_select(:city_id, City.all, :id, :cityname) %>
+	</div>
   <%= f.submit "Update" %>
 <% end %>
 

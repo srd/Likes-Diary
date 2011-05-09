@@ -1,8 +1,12 @@
 <br/><br/><br/>
 <p>
   <b>Login:</b>
-  <%=h @user.login %>
+  <%= @user.login %>
+	<br/><br/><br/>
+	<b>City: </b>
+	<%= @user.city.cityname %>
 </p>
+
 
 <% if correct_user %>	
 	<%= link_to 'Edit', edit_user_path %>

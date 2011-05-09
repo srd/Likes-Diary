@@ -51,6 +51,10 @@ class ApplicationController < ActionController::Base
 		end
 		
 		def is_admin?
-			current_user.admin
+			unless current_user.admin
+				redirect_to root_path
+				return false
+			end
 		end
+
 end

@@ -14,3 +14,7 @@
   <%= form.label :password_confirmation %>
   <%= form.password_field :password_confirmation %>
 </div>
+<div>
+	<%= form.label :city_id %>
+	<%= form.collection_select(:city_id, City.all, :id, :cityname) %>
+</div>
