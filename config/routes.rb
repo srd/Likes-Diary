@@ -1,4 +1,19 @@
 Likesdiary::Application.routes.draw do
+  resources :user_sessions
+  resources :users
+
+  get "user_sessions/new"
+
+  get "users/new"
+
+  match '/contact', :to => 'pages#contact'
+  match '/about', :to => 'pages#about'
+  match 'signup', :to => 'users#new'
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+
+  root :to => 'pages#home'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
