@@ -1,7 +1,7 @@
 	<div id="infolink">
 <table><tr>
 	<td><div class="rounded" id="button">
-		<a href="<!-- following_user_path(current_user)-->">
+		<a href="<%= following_user_path(current_user) %>">
 			<table width="106" height="32"><tr><td>
 				<img src="/images/friends.png"></td>
 				<td align="left">Friends</td>
@@ -17,3 +17,5 @@
 	</div></td></tr>
 </table>
 				</div>
+				
+				<font size=2 color=#247885><%= render 'shared/stats' %></font>

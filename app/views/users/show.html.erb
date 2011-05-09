@@ -1,13 +1,15 @@
 <br/><br/><br/>
+<%= render 'follow_form' if signed_in? %>
+<% if correct_user %>	
+	<%= link_to 'Edit', edit_user_path %>
+<% end %>
 <p>
   <b>Login:</b>
   <%= @user.login %>
 	<br/><br/><br/>
 	<b>City: </b>
-	<%= @user.city.cityname %>
+	<% if @user.city %>
+		<%= @user.city.cityname %>
+	<% end %>
 </p>
 
-
-<% if correct_user %>	
-	<%= link_to 'Edit', edit_user_path %>
-<% end %>

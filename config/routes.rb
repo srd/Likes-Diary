@@ -1,7 +1,13 @@
 Likesdiary::Application.routes.draw do
-	resources :users
+	resources :users do
+		member do
+			get :following, :followers
+		end
+	end
   resources :user_sessions
 	resources :cities
+	
+	resources :relationships, :only => [:create, :destroy]
 
   get "user_sessions/new"
 
