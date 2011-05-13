@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
   def show
 		@category = Category.find(params[:id])
 		@title = @category.categoryname
+		@subgroups = @category.subgroups
   end
 
   def edit

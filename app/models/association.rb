@@ -4,4 +4,5 @@ class Association < ActiveRecord::Base
 	
 	validates :subgroup_id, :presence => true
 	validates :product_id, :presence => true
+
 end

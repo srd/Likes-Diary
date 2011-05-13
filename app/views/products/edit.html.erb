@@ -1,0 +1,11 @@
+<br/><br/><br/>
+<h1>Editing product </h1>
+
+<%= form_for @product do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <%= render :partial => 'form', :object => f %>
+  <%= f.submit "Update product!!!" %>
+<% end %>
+
+<%= link_to 'Show', @product %> |
+<%= link_to 'Back', products_path %>

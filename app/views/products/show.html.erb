@@ -1,0 +1,13 @@
+<div>
+	<b>Name </b>
+	<%= @product.productname %>
+	<br/><br/>
+	<b>Details </b>
+	<%= @product.details %>
+</div>
+
+<%= render @subgroups %>
+
+<% if isadmin? %>
+<%= render 'addsubgroup_form' %>
+<% end %>

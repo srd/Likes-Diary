@@ -3,6 +3,9 @@ Likesdiary::Application.routes.draw do
 	resources :maingroups
 	resources :categories
 	resources :subgroups
+	resources :products do
+		resources :associations
+	end
 
 	resources :users do
 		member do

@@ -1,5 +1,16 @@
+//show all the main groups
+
 <div>
 	<b>Name </b>
 	<%= @category.categoryname %>
 	<%= @category.maingroup.name %>
 </div>
+
+//show all the subgroups
+
+<% unless @subgroups.empty? %>
+	<ul class="users">
+		<%= render @subgroups %>
+	</ul>
+<% end %>
+

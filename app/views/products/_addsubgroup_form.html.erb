@@ -1,0 +1,13 @@
+//TODO later - modify the form to give multiple drop boxes so that first you select 
+a maingroup - then category and then sub group
+
+<br/><br/>
+<%= @product.id %>
+<br/><br/>
+<%= form_for([@product, @product.associations.build]) do |f| %>
+	<div>
+		<%= f.label :subgroup_id %>
+		<%= f.collection_select(:subgroup_id, Subgroup.all, :id, :subgroupname) %>
+	</div>
+  <div><%= f.submit "Add subgroup" %></div>
+<% end %>

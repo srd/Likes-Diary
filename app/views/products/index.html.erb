@@ -1,0 +1,8 @@
+Welcome to Likes Diary
+<br/><br/>List of all the products<br/><br/>
+
+<%= render @products %>
+<br/><br/>
+<% if isadmin? %>
+<%= link_to "New product", new_product_path %>
+<% end %>

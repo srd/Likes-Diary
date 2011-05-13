@@ -1,5 +1,5 @@
 <%= subgroup.subgroupname %>
-<% if is_admin? %>
+<% if isadmin? %>
 <%= link_to "Edit", edit_subgroup_path(subgroup) %>
 <%= link_to 'Show', subgroup %>
 <%= link_to 'Destroy', subgroup, :confirm => 'Are you sure?', :method => :delete %>

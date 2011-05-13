@@ -13,6 +13,7 @@ class MaingroupsController < ApplicationController
   def show
 		@maingroup = Maingroup.find(params[:id])
 		@title = @maingroup.name
+		@categories = @maingroup.categories
   end
 
   def edit
