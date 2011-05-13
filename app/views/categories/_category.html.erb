@@ -1,0 +1,9 @@
+Category
+<%= category.categoryname %>
+<%= category.maingroup.name %>
+<% if is_admin? %>
+<%= link_to "Edit", edit_category_path(category) %>
+<%= link_to 'Show', category %>
+<%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+<br/>

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title><%= title %></title>
+	<%= render 'layouts/stylesheets' %>
+</head>
+<body>
+<%= render 'layouts/header1' %>
+<div id="wrap">
+<div id="leftsidebar">
+<div id="leftheader"></div>
+<div id="leftcontent">
+   <div id="userbox">
+	<div id="userinfo">
+	<%= render 'layouts/userinfo' %>
+	</div>
+<%= render 'layouts/header2' %>
+<div id="leftfooter">
+<div class="rounded" id="leftfootertabs">
+<a href="/cheapsdiary/">
+	<table width="232" height="44"><tr><td>
+		<img src="/images/newsfeed.png" height="30" align="right"></td>
+		<td align="middle">Cheaps Feed</td>
+		</tr></table>
+</a>
+</div>
+<div class="rounded" id="leftfootertabs">
+	<a href="<-- merchants_user_path(current_user) -->">
+	<table width="232" height="44"><tr><td>
+                
+		<img src="/images/tribes.png" height="30" align="right"></td>
+                <td width="30"></td>
+		<td align="middle">Tribes</td><td width="75"> </td>
+	</tr></table>
+	</a>
+</div>
+<div class="rounded" id="leftfootertabs">
+	<a href="#">
+	<table width="232" height="44"><tr><td>
+		<img src="/images/localdiscount.png" height="30" align="right"></td>
+		<td align="middle">Local Discount</td>
+	</tr></table>
+	</a>
+</div>
+</div>
+			</div>
+		</div>
+	</div>
+
+<div id="container">
+<%= render 'layouts/headertabs' %>
+</div>
+<div id="wrap2"><%= yield %></div>
+</div>
+</body>
+</html>

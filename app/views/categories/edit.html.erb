@@ -1,0 +1,11 @@
+<br/><br/><br/>
+<h1>Editing category </h1>
+
+<%= form_for @category do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <%= render :partial => 'form', :object => f %>
+  <%= f.submit "Update Category!!!" %>
+<% end %>
+
+<%= link_to 'Show', @category %> |
+<%= link_to 'Back', categories_path %>

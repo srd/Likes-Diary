@@ -1,0 +1,11 @@
+<br/><br/><br/>
+<h1>Editing maingroup </h1>
+
+<%= form_for @maingroup do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <%= render :partial => 'form', :object => f %>
+  <%= f.submit "Update main group!!!" %>
+<% end %>
+
+<%= link_to 'Show', @maingroup %> |
+<%= link_to 'Back', maingroups_path %>

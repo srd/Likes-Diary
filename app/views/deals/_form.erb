@@ -1,0 +1,49 @@
+<div>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+</div>
+<div>
+	<%= form.label :city_id %>
+	<%= form.collection_select(:city_id, City.all, :id, :cityname) %>
+</div>
+<div>
+	<%= form.label :originalprice %>
+	<%= form.text_field :originalprice %>
+</div>
+<div>
+	<%= form.label :discount %>
+	<%= form.text_field :discount %>
+</div>
+<div>
+	<%= form.label :maxattenders %>
+	<%= form.text_field :maxattenders %>
+</div>
+<div>
+	<%= form.label :info1 %>
+	<%= form.text_area :info1 %>
+</div>
+<div>
+	<%= form.label :terms %>
+	<%= form.text_area :terms %>
+</div>
+<div>
+	<%= form.label :aboutdeal %>
+	<%= form.text_area :aboutdeal %>
+</div>
+<div>
+	<%= form.label :info2 %>
+	<%= form.text_area :info2 %>
+</div>
+<div>
+	<%= form.label :address %>
+	<%= form.text_area :address %>
+</div>
+
+<div>
+	<%= form.label :startat %>
+	<%= form.datetime_select :startat %>
+</div>
+<div>
+	<%= form.label :endat %>
+	<%= form.datetime_select :endat %>
+</div>

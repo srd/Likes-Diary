@@ -1,0 +1,11 @@
+<br/><br/><br/>
+<h1>Editing deal</h1>
+
+<%= form_for @deal do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <%= render :partial => 'form', :object => f %>
+  <%= f.submit "Update Deal!!!" %>
+<% end %>
+
+<%= link_to 'Show', @deal %> |
+<%= link_to 'Back', deals_path %>

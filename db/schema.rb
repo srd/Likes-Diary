@@ -10,10 +10,62 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110509192531) do
+ActiveRecord::Schema.define(:version => 20110511054319) do
+
+  create_table "associations", :force => true do |t|
+    t.integer  "subgroup_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "associations", ["product_id"], :name => "index_associations_on_product_id"
+  add_index "associations", ["subgroup_id", "product_id"], :name => "index_associations_on_subgroup_id_and_product_id", :unique => true
+  add_index "associations", ["subgroup_id"], :name => "index_associations_on_subgroup_id"
+
+  create_table "categories", :force => true do |t|
+    t.string   "categoryname"
+    t.integer  "maingroup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["maingroup_id"], :name => "index_categories_on_maingroup_id"
 
   create_table "cities", :force => true do |t|
     t.string   "cityname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "deals", :force => true do |t|
+    t.string   "name"
+    t.integer  "city_id"
+    t.integer  "originalprice"
+    t.integer  "discount"
+    t.integer  "maxattenders"
+    t.text     "info1"
+    t.text     "terms"
+    t.text     "aboutdeal"
+    t.text     "info2"
+    t.text     "address"
+    t.datetime "startat"
+    t.datetime "endat"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "deals", ["city_id"], :name => "index_deals_on_city_id"
+
+  create_table "maingroups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "productname"
+    t.text     "details"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,6 +80,15 @@ ActiveRecord::Schema.define(:version => 20110509192531) do
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
+
+  create_table "subgroups", :force => true do |t|
+    t.string   "subgroupname"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subgroups", ["category_id"], :name => "index_subgroups_on_category_id"
 
   create_table "users", :force => true do |t|
     t.string   "login",                                 :null => false

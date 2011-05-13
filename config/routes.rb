@@ -1,4 +1,9 @@
 Likesdiary::Application.routes.draw do
+  resources :deals
+	resources :maingroups
+	resources :categories
+	resources :subgroups
+
 	resources :users do
 		member do
 			get :following, :followers

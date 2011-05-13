@@ -1,0 +1,28 @@
+<br/><br/><br/>
+<% if is_admin? %>	
+	<%= link_to 'Edit', edit_deal_path %>
+<% end %>
+
+<b>Name : </b>
+<%= @deal.name %><br/><br/>
+<b>City</b>
+<%= @deal.city.cityname %><br/><br/>
+<b>Original Price </b>
+<%= @deal.originalprice %><br/><br/>
+<b>Discount</b>
+<%= @deal.discount %><br/><br/>
+<b>Maxattenders</b>
+<%= @deal.maxattenders %><br/><br/>
+<b>Info1</b>
+<%= @deal.info1 %><br/><br/>
+<b>Info2</b>
+<%= @deal.info2 %><br/><br/>
+<b>Terms</b>
+<%= @deal.terms %><br/><br/>
+<b>About deal</b>
+<%= @deal.aboutdeal %><br/><br/>
+<b>Addres</b>
+<%= @deal.address %><br/><br/>
+
+<%= @deal.startat %><br/><br/>
+<%= @deal.endat %><br/><br/>

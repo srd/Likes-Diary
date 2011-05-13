@@ -1,5 +1,7 @@
 class City < ActiveRecord::Base
 	has_many :users
+	has_many :deals
+	
 	attr_accessible :cityname
 	
 	validates_presence_of :cityname

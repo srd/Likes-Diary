@@ -55,6 +55,7 @@ class ApplicationController < ActionController::Base
 				redirect_to root_path
 				return false
 			end
+			return true
 		end
 		
 		def signed_in?

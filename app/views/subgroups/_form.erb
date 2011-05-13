@@ -1,0 +1,8 @@
+<div>
+  <%= form.label :subgroupname %>
+  <%= form.text_field :subgroupname %>
+</div>
+<div>
+	<%= form.label :category_id %>
+	<%= form.collection_select(:category_id, Category.all, :id, :categoryname) %>
+</div>
