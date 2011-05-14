@@ -1,0 +1,5 @@
+<% deal_id = @deal.id %>
+<%= form_for @deal.deal_likes.build(:user_id => current_user.id) do |f| %>
+<div><%= f.hidden_field :deal_id %></div>
+<div class="actions"><%= f.submit "Like" %></div>
+<% end %>

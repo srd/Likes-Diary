@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110514103032) do
+ActiveRecord::Schema.define(:version => 20110514114414) do
 
   create_table "associations", :force => true do |t|
     t.integer  "subgroup_id"
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(:version => 20110514103032) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "deal_likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "deal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "deal_likes", ["deal_id"], :name => "index_deal_likes_on_deal_id"
+  add_index "deal_likes", ["user_id", "deal_id"], :name => "index_deal_likes_on_user_id_and_deal_id", :unique => true
+  add_index "deal_likes", ["user_id"], :name => "index_deal_likes_on_user_id"
 
   create_table "deals", :force => true do |t|
     t.string   "name"

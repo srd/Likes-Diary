@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
 	has_many :product_likes, :dependent => :destroy
 	has_many :products, :through => :product_likes
 	
+	has_many :deal_likes, :dependent => :destroy
+	has_many :deals, :through => :deal_likes
+	
 	has_many :productcomments, :dependent => :destroy
 	
 	def following?(followed)

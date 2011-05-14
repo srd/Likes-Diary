@@ -25,6 +25,7 @@ class DealsController < ApplicationController
 	def show
 		@deal = Deal.find(params[:id])
 		@title = @deal.name
+		@likers = @deal.users
 	end
 	
 	def edit

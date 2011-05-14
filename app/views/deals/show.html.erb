@@ -26,3 +26,12 @@
 
 <%= @deal.startat %><br/><br/>
 <%= @deal.endat %><br/><br/>
+
+
+//add likes here
+<%= render 'like_form' if signedin? %>
+
+<br/>
+
+This page has been liked by - <br/>
+<%= render @likers %>

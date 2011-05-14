@@ -18,6 +18,7 @@ Likesdiary::Application.routes.draw do
 	
 	resources :relationships, :only => [:create, :destroy]
 	resources :product_likes, :only => [:create, :destroy]
+	resources :deal_likes, :only => [:create, :destroy]
 
   get "user_sessions/new"
 

@@ -1,0 +1,3 @@
+<%= form_for @deal.deal_likes.find_by_user_id(current_user.id),:html => { :method => :delete } do |f| %>
+<div class="actions"><%= f.submit "Unlike" %></div>
+<% end %>
