@@ -1,4 +1,7 @@
 <div>
 	<b>Name </b>
-	<%= @subgroup.subgroupname %>
+	<%= @subgroup.subgroupname %>	
 </div>
+<% unless @products.empty? %>
+	<%= render @products %>
+<% end %>

@@ -5,6 +5,7 @@ Likesdiary::Application.routes.draw do
 	resources :subgroups
 	resources :products do
 		resources :associations
+		resources :productcomments
 	end
 
 	resources :users do
@@ -16,6 +17,7 @@ Likesdiary::Application.routes.draw do
 	resources :cities
 	
 	resources :relationships, :only => [:create, :destroy]
+	resources :product_likes, :only => [:create, :destroy]
 
   get "user_sessions/new"
 

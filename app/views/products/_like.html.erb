@@ -1,0 +1,5 @@
+<% product_id = @product.id %>
+<%= form_for @product.product_likes.build(:user_id => current_user.id) do |f| %>
+<div><%= f.hidden_field :product_id %></div>
+<div class="actions"><%= f.submit "Like" %></div>
+<% end %>

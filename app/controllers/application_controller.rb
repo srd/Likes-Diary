@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user_session, :current_user, :correct_user, :is_admin?, :signed_in?, :isadmin?
+  helper_method :current_user_session, :current_user, :correct_user, :is_admin?, :signed_in?, :isadmin?, :signedin?, :correct_user?
 
   private
     def current_user_session
@@ -66,6 +66,14 @@ class ApplicationController < ActionController::Base
 		end
 		
 		def signed_in?
+			unless current_user
+				redirect_to root_path
+				return false
+			end
+			return true
+		end
+		
+		def signedin?
 			unless current_user
 				return false
 			end

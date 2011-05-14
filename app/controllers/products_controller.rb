@@ -14,6 +14,8 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 		@subgroups = @product.subgroups
 		@title = @product.productname
+		@likers = @product.users
+		@comments = @product.productcomments
   end
 
   def edit

@@ -13,6 +13,7 @@ class SubgroupsController < ApplicationController
   def show
 		@subgroup = Subgroup.find(params[:id])
 		@title = @subgroup.subgroupname
+		@products = @subgroup.products
   end
 
   def edit
