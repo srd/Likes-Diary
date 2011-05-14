@@ -35,3 +35,24 @@
 
 This page has been liked by - <br/>
 <%= render @likers %>
+
+
+
+//add comments here
+<br/>
+
+<% if signedin? %>
+
+	<h2>Comments</h2>
+	Count is:
+	<%= @deal.dealcomments.count %><br/>
+	//need to paginate comments later
+	<br/><br/>
+	<%= render :partial => "dealcomments/dealcomment",
+           :collection => @comments %>
+
+<% end %>
+
+<br/><br/>
+
+<%= render 'deals/commentsform' if signedin? %>

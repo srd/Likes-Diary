@@ -1,0 +1,8 @@
+<%= form_for([@deal, @deal.dealcomments.build]) do |f| %>
+  <div class="field">
+    <%= f.text_area(:content, :size => "70x5")%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Comment" %>
+  </div>
+<% end %>

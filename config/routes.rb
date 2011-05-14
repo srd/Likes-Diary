@@ -1,5 +1,7 @@
 Likesdiary::Application.routes.draw do
-  resources :deals
+  resources :deals do
+		resources :dealcomments
+	end
 	resources :maingroups
 	resources :categories
 	resources :subgroups
@@ -29,6 +31,7 @@ Likesdiary::Application.routes.draw do
   match 'signup', :to => 'users#new'
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
+	match 'cheapsdiary' => 'deals#currentdeal'
 
   root :to => 'pages#home'
 

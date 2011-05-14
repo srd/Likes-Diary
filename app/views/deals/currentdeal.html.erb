@@ -1,0 +1,9 @@
+Showing the current deal in the city
+<%= current_user.city.cityname %>
+<br/><br/>
+<p>Active Deals </p>
+<% if @currentdeal %>
+	<%= @currentdeal.name %>
+	show the rest of the details of the current deal
+	also options to share and like and comment and attend
+<% end %>

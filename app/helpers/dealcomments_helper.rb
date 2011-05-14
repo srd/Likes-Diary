@@ -1,0 +1,2 @@
+module DealcommentsHelper
+end

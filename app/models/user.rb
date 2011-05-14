@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
 	
 	has_many :productcomments, :dependent => :destroy
 	
+	has_many :dealcomments, :dependent => :destroy
+	
 	def following?(followed)
 		relationships.find_by_followed_id(followed)
 	end

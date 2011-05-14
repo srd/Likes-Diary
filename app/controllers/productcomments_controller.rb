@@ -1,7 +1,6 @@
 class ProductcommentsController < ApplicationController
 	before_filter :signed_in?
-  # look at delete comment later 
-	#before_filter :authorized_user, :only => :destroy
+	before_filter :authorized_user, :only => :destroy
 
 	def create
 		@product = Product.find(params[:product_id])		
@@ -17,4 +16,9 @@ class ProductcommentsController < ApplicationController
     redirect_to @product
 	end
 	
+	private
+  def authorized_user
+    @productcomment = Productcomment.find(params[:id])
+    redirect_to root_path unless correct_user?(@productcomment.user)
+  end
 end

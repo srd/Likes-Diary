@@ -1,6 +1,7 @@
 class DealsController < ApplicationController
 	layout 'cheapsdiary'
 	before_filter :is_admin?, :only => [:new, :index, :edit, :update, :create, :destroy]
+	before_filter :signed_in?, :only => [:current_deal]
 	
   def new
 		@title = "Create a new deal"
@@ -26,6 +27,7 @@ class DealsController < ApplicationController
 		@deal = Deal.find(params[:id])
 		@title = @deal.name
 		@likers = @deal.users
+		@comments = @deal.dealcomments
 	end
 	
 	def edit
@@ -49,9 +51,25 @@ class DealsController < ApplicationController
     redirect_to(deals_url)
 	end
 	
-	def currentDeal
-		#depends on date and city
-		#this will be home page of cheapsdiary
+	def currentdeal
+		@citydeals = Deal.citydeals(current_user.city_id)
+		@current
+		@old
+		@future
+		@citydeals.each do |citydeal|
+			if citydeal.current?
+				@current = citydeal
+				return
+			end
+			if citydeal.old?
+				@old = citydeal
+				return
+			end
+			if citydeal.future?
+				@future = citydeal
+				return
+			end
+		end
 	end
 
 end

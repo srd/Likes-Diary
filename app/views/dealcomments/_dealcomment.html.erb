@@ -1,0 +1,18 @@
+Commenter:
+<%= dealcomment.user.login %>
+<br/>
+Comment:
+<%= dealcomment.content %>
+<br/>
+<div>
+Posted <%= time_ago_in_words(dealcomment.created_at) %> ago.
+<br/>
+<% if correct_user?(dealcomment.user) %>
+<%= link_to 'Delete', [dealcomment.deal, dealcomment],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+<% end %>
+<br/>
+Put an X sign later rather than the message
+<br/><br/>
+
