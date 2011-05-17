@@ -1,6 +1,6 @@
 Maingroup
 <%= maingroup.name %>
-<% if is_admin? %>
+<% if isadmin? %>
 <%= link_to "Edit", edit_maingroup_path(maingroup) %>
 <%= link_to 'Show', maingroup %>
 <%= link_to 'Destroy', maingroup, :confirm => 'Are you sure?', :method => :delete %>

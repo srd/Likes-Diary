@@ -18,3 +18,22 @@
 	<%= form.label :city_id %>
 	<%= form.collection_select(:city_id, City.all, :id, :cityname) %>
 </div>
+<div>
+	<%= form.label :sex %>
+  <%= form.select( :sex, [["Male", "Male"], ["Female", "Female"]]) %>
+</div>
+<br/>
+<div>
+	<%= form.label :birthday %>
+	<%= form.date_select( :birthday,:date_separator => "-" , :start_year => 1960 ) %>
+</div>
+<br/>
+<div>
+	<%= form.label :profession %>
+	<%= form.text_field :profession %>
+</div>
+<br/>
+<div>
+	<%= form.label :aboutme %>
+	<%= form.text_area :aboutme %>
+</div>

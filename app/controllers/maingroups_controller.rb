@@ -7,13 +7,16 @@ class MaingroupsController < ApplicationController
   end
 
   def index
-		@maingroups = Maingroup.all
+		@maingroups_all = Maingroup.all
+		@maingroups = @maingroups_all.group_by { |t| t.variety }
   end
 
   def show
 		@maingroup = Maingroup.find(params[:id])
 		@title = @maingroup.name
 		@categories = @maingroup.categories
+		@maingroups_all = Maingroup.all
+		@maingroups = @maingroups_all.group_by { |t| t.variety }
   end
 
   def edit

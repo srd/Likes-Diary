@@ -13,7 +13,9 @@ class CategoriesController < ApplicationController
   def show
 		@category = Category.find(params[:id])
 		@title = @category.categoryname
-		@subgroups = @category.subgroups
+		@maingroups_all = Maingroup.all
+		@maingroups = @maingroups_all.group_by { |t| t.variety }
+		@subgroups = @category.subgroups.group_by { |t| t.subgroupname[0].upcase }
   end
 
   def edit

@@ -1,16 +1,21 @@
-//show all the main groups
+<%= render 'shared/top' %>
 
 <div>
 	<b>Name </b>
 	<%= @category.categoryname %>
 	<%= @category.maingroup.name %>
 </div>
-
+<br/><br/>
+<br/><br/>
 //show all the subgroups
 
 <% unless @subgroups.empty? %>
-	<ul class="users">
-		<%= render @subgroups %>
-	</ul>
+
+<% @subgroups.keys.sort.each do |variety| %>
+<p><%= variety %></p>
+	<% for group in @subgroups[variety] %>
+		<%= link_to group.subgroupname , group %><br/>
+	<% end %>
 <% end %>
 
+<% end %>

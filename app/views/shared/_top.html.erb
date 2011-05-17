@@ -1,0 +1,6 @@
+<% @maingroups.keys.sort.each do |variety| %>
+<p><%= variety %></p>
+	<% for group in @maingroups[variety] %>
+		<%= link_to group.name , group %><br/>
+	<% end %>
+<% end %>

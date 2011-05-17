@@ -14,6 +14,25 @@
 		<%= f.label :city_id %>
 		<%= f.collection_select(:city_id, City.all, :id, :cityname) %>
 	</div>
+	<div>
+	<%= f.label :sex %>
+  <%= f.select( :sex, [["Male", "Male"], ["Female", "Female"]]) %>
+</div>
+<br/>
+<div>
+	<%= f.label :birthday %>
+	<%= f.date_select( :birthday,:date_separator => "-" , :start_year => 1960 ) %>
+</div>
+<br/>
+<div>
+	<%= f.label :profession %>
+	<%= f.text_field :profession %>
+</div>
+<br/>
+<div>
+	<%= f.label :aboutme %>
+	<%= f.text_area :aboutme %>
+</div>
   <%= f.submit "Update" %>
 <% end %>
 

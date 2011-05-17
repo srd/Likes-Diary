@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110514154253) do
+ActiveRecord::Schema.define(:version => 20110514184444) do
 
   create_table "associations", :force => true do |t|
     t.integer  "subgroup_id"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20110514154253) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "variety",    :default => 1
   end
 
   create_table "product_likes", :force => true do |t|
@@ -151,6 +152,10 @@ ActiveRecord::Schema.define(:version => 20110514154253) do
     t.datetime "updated_at"
     t.integer  "city_id"
     t.boolean  "admin",              :default => false
+    t.string   "sex"
+    t.string   "profession"
+    t.date     "birthday"
+    t.text     "aboutme"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
