@@ -1,7 +1,7 @@
 <div id="userinfo">
 <div style="float: left; width: 106px; height: 106px; background-color: #f1f8f9; -webkit-box-shadow: 0 0 2px #C7CFD6; padding-top:4px;">
 
-<center><!-- image_tag current_user.photo.url(:normal) , :size => 150 --></center></div>
+<center><%= image_tag current_user.photo.url(:small) , :size => 150 %></center></div>
 <div style="float: left; width: 122px; height: 110px"></div>
 <br/><br/>
 <font size=3 color=#247885><b><%= link_to current_user.login, user_path(current_user) %></b></font><br/>

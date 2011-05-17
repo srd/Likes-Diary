@@ -4,6 +4,7 @@
 	<%= link_to 'Edit', edit_user_path %>
 <% end %>
 <p>
+	<%= image_tag @user.photo.url(:small) %>
   <b>Login:</b>
   <%= @user.login %>
 	<br/><br/><br/>
@@ -19,5 +20,6 @@
 	<%= @user.profession %><br/>
 	<b>About me:</b>
 	<%= @user.aboutme %>
+	<%= image_tag @user.photo.url(:thumb) %>
 </p>
 

@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
 	
 	has_many :dealcomments, :dependent => :destroy
 	
+	has_attached_file :photo, :styles => { 
+							:thumb => "50x50#", 
+							:small => "150x150>" }
+	
 	def following?(followed)
 		relationships.find_by_followed_id(followed)
 	end

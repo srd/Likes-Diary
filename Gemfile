@@ -8,6 +8,8 @@ gem 'rails', '3.0.7'
 gem 'sqlite3'
 gem 'authlogic'
 gem 'will_paginate'
+gem 'paperclip'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
