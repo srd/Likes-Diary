@@ -10,6 +10,11 @@ class Product < ActiveRecord::Base
 
 	validates :productname, :presence => true, :length => {:within => 2..500}
 	
+	has_attached_file :photo,
+    :styles => {
+      :thumb=> "75x75#",
+      :small  => "200x200>" }
+	
 	def addSubGroup!(subgroup)
 		associations.create!(:subgroup_id => subgroup.id)
 	end

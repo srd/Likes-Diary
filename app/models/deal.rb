@@ -7,6 +7,11 @@ class Deal < ActiveRecord::Base
 	has_many :dealcomments, :dependent => :destroy
   has_many :commenters, :class_name => 'User', :through => :dealcomments
 	
+	has_attached_file :photo,
+    :styles => {
+      :thumb=> "75x75#",
+      :small  => "400x400>" }
+	
 	validates :name, :presence => true,
 									 :length => {:within => 2..50}
 

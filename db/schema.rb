@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110517160058) do
+ActiveRecord::Schema.define(:version => 20110517165005) do
 
   create_table "associations", :force => true do |t|
     t.integer  "subgroup_id"
@@ -75,6 +75,9 @@ ActiveRecord::Schema.define(:version => 20110517160058) do
     t.datetime "endat"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   add_index "deals", ["city_id"], :name => "index_deals_on_city_id"
@@ -113,6 +116,9 @@ ActiveRecord::Schema.define(:version => 20110517160058) do
     t.text     "details"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   create_table "relationships", :force => true do |t|

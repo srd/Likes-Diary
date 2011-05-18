@@ -1,6 +1,6 @@
 <h1>Create a new product</h1>
 
-<%= form_for @product, :url => products_path do |f| %>
+<%= form_for @product, :url => products_path, :html => {:multipart => true } do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <%= render :partial => 'form', :object => f %>
   <%= f.submit "Create product!!!" %>

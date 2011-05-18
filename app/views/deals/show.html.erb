@@ -1,8 +1,9 @@
 <br/><br/><br/>
-<% if is_admin? %>	
+<% if isadmin? %>	
 	<%= link_to 'Edit', edit_deal_path %>
 <% end %>
 
+<%= image_tag @deal.photo.url(:small) %>
 <b>Name : </b>
 <%= @deal.name %><br/><br/>
 <b>City</b>
