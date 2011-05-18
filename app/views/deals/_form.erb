@@ -50,3 +50,7 @@
 <div>
 	<%= form.file_field :photo %>
 </div>
+<div>
+	<%= form.label :merchant_id %>
+	<%= form.collection_select(:merchant_id, Merchant.all, :id, :merchantname) %>
+</div>

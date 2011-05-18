@@ -1,0 +1,17 @@
+Commenter:
+<%= merchantcomment.user.login %>
+<br/>
+Comment:
+<%= merchantcomment.content %>
+<br/>
+<div>
+Posted <%= time_ago_in_words(merchantcomment.created_at) %> ago.
+<br/>
+<% if correct_user?(merchantcomment.user) %>
+<%= link_to 'Delete', [merchantcomment.merchant, merchantcomment],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+<% end %>
+Put an X sign later rather than the message
+<br/><br/>
+

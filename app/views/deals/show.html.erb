@@ -8,6 +8,8 @@
 <%= @deal.name %><br/><br/>
 <b>City</b>
 <%= @deal.city.cityname %><br/><br/>
+<b>Merchant</b>
+<%= link_to @deal.merchant.merchantname, @deal.merchant %><br/><br/>
 <b>Original Price </b>
 <%= @deal.originalprice %><br/><br/>
 <b>Discount</b>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110517165005) do
+ActiveRecord::Schema.define(:version => 20110518151905) do
 
   create_table "associations", :force => true do |t|
     t.integer  "subgroup_id"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20110517165005) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
+    t.integer  "merchant_id"
   end
 
   add_index "deals", ["city_id"], :name => "index_deals_on_city_id"
@@ -87,6 +88,40 @@ ActiveRecord::Schema.define(:version => 20110517165005) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "variety",    :default => 1
+  end
+
+  create_table "merchant_likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "merchant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "merchant_likes", ["merchant_id"], :name => "index_merchant_likes_on_merchant_id"
+  add_index "merchant_likes", ["user_id", "merchant_id"], :name => "index_merchant_likes_on_user_id_and_merchant_id", :unique => true
+  add_index "merchant_likes", ["user_id"], :name => "index_merchant_likes_on_user_id"
+
+  create_table "merchantcomments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "merchant_id"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "merchantcomments", ["merchant_id"], :name => "index_merchantcomments_on_merchant_id"
+  add_index "merchantcomments", ["user_id"], :name => "index_merchantcomments_on_user_id"
+
+  create_table "merchants", :force => true do |t|
+    t.string   "merchantname"
+    t.text     "tribecomment"
+    t.text     "merchantinfo"
+    t.text     "meraddress"
+    t.text     "merchantphone"
+    t.string   "merspectext"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "city_id"
   end
 
   create_table "product_likes", :force => true do |t|

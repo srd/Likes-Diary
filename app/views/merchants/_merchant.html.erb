@@ -1,0 +1,7 @@
+<%= merchant.merchantname %>
+<% if isadmin? %>
+<%= link_to "Edit", edit_merchant_path(merchant) %>
+<%= link_to 'Show', merchant %>
+<%= link_to 'Destroy', merchant, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+<br/>

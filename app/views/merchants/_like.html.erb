@@ -1,0 +1,5 @@
+<% merchant_id = @merchant.id %>
+<%= form_for @merchant.merchant_likes.build(:user_id => current_user.id) do |f| %>
+<div><%= f.hidden_field :merchant_id %></div>
+<div class="actions"><%= f.submit "Like" %></div>
+<% end %>

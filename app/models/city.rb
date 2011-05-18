@@ -1,5 +1,6 @@
 class City < ActiveRecord::Base
 	has_many :users
+	has_many :merchants
 	has_many :deals
 	
 	attr_accessible :cityname

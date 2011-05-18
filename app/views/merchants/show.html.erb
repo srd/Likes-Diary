@@ -1,0 +1,40 @@
+<div>
+	<b>Name </b>
+	<%= @merchant.merchantname %>	<br/><br/>
+	<%= @merchant.merchantinfo %> <br/><br/>
+	<%= @merchant.meraddress %> <br/><br/>
+	<%= @merchant.merchantphone %> <br/><br/>
+	<%= @merchant.merspectext %> <br/><br/>
+	<%= @merchant.tribecomment %> <br/><br/>
+	<b>City</b><%= @merchant.city.cityname %> <br/><br/>
+</div>
+
+Deals offered by this merchant so far<br/>
+<%= render @deals %>
+<br/><br/><br/><br/>
+//add likes here
+<%= render 'like_form' if signedin? %>
+
+<br/>
+
+This page has been liked by - <br/>
+<%= render @likers %>
+
+//add comments here
+<br/>
+
+<% if signedin? %>
+
+	<h2>Comments</h2>
+	Count is:
+	<%= @merchant.merchantcomments.count %><br/>
+	//need to paginate comments later
+	<br/><br/>
+	<%= render :partial => "merchantcomments/merchantcomment",
+           :collection => @comments %>
+
+<% end %>
+
+<br/><br/>
+
+<%= render 'merchants/commentsform' if signedin? %>

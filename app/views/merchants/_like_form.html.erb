@@ -1,0 +1,7 @@
+<div>
+  <% if @merchant.merchantliked?(current_user) %>
+    <%= render 'unlike' %>
+  <% else %>
+    <%= render 'like' %>
+  <% end %>
+</div>

@@ -1,0 +1,2 @@
+module MerchantcommentsHelper
+end

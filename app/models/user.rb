@@ -21,9 +21,14 @@ class User < ActiveRecord::Base
 	has_many :deal_likes, :dependent => :destroy
 	has_many :deals, :through => :deal_likes
 	
+	has_many :merchant_likes, :dependent => :destroy
+	has_many :merchants, :through => :merchant_likes
+	
 	has_many :productcomments, :dependent => :destroy
 	
 	has_many :dealcomments, :dependent => :destroy
+	
+	has_many :merchantcomments, :dependent => :destroy
 	
 	has_attached_file :photo, :styles => { 
 							:thumb => "50x50#", 

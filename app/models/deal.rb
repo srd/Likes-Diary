@@ -1,5 +1,6 @@
 class Deal < ActiveRecord::Base
 	belongs_to :city
+	belongs_to :merchant
 	
 	has_many :deal_likes, :dependent => :destroy
   has_many :users, :through => :deal_likes
