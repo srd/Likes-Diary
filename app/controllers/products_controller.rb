@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
 		@title = @product.productname
 		@likers = @product.users
 		@comments = @product.productcomments
+		@reviews = @product.reviews
   end
 
   def edit

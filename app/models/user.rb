@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
 	
 	has_many :productcomments, :dependent => :destroy
 	
+	has_many :reviews, :dependent => :destroy
+	
 	has_many :dealcomments, :dependent => :destroy
 	
 	has_many :merchantcomments, :dependent => :destroy

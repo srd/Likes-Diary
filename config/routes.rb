@@ -8,6 +8,7 @@ Likesdiary::Application.routes.draw do
 	resources :products do
 		resources :associations
 		resources :productcomments
+		resources :reviews
 	end
 
 	resources :users do

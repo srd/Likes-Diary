@@ -41,6 +41,26 @@ This page has been liked by - <br/>
 
 <%= render 'products/commentsform' if signedin? %>
 
+
+//add reviews here
+<br/>
+
+<% if signedin? %>
+
+	<h2>Reviews</h2>
+	Count is:
+	<%= @product.reviews.count %><br/>
+	//need to paginate reviews later
+	<br/><br/>
+	<%= render :partial => "reviews/review",
+           :collection => @reviews %>
+
+<% end %>
+
+<br/><br/>
+
+<%= render 'products/reviewsform' if signedin? %>
+
 <br/><br/>
 <% if isadmin? %>
 <%= render @subgroups %>

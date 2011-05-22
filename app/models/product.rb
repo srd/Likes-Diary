@@ -7,6 +7,9 @@ class Product < ActiveRecord::Base
 	
 	has_many :productcomments, :dependent => :destroy
   has_many :commenters, :class_name => 'User', :through => :productcomments
+	
+	has_many :reviews, :dependent => :destroy
+  has_many :reviewers, :class_name => 'User', :through => :reviews
 
 	validates :productname, :presence => true, :length => {:within => 2..500}
 	
@@ -21,6 +24,10 @@ class Product < ActiveRecord::Base
 	
 	def addComment!(comment)
 		productcomments.create!(:user_id => comment.user_id, :content => comment.content)
+	end
+	
+	def addReview!(review)
+		reviews.create!(:user_id => review.user_id, :content => review.content)
 	end
 	
 	def removeSubGroup!(subgroup)
