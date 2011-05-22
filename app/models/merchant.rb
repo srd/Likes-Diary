@@ -8,6 +8,31 @@ class Merchant < ActiveRecord::Base
 	
 	has_many :merchantcomments, :dependent => :destroy
   has_many :commenters, :class_name => 'User', :through => :merchantcomments
+	
+	has_attached_file :photo,
+    :styles => {
+      :thumb=> "75x75#",
+      :small  => "400x400>" }
+			
+	has_attached_file :deal1,
+    :styles => {
+      :thumb=> "75x75#",
+      :small  => "100x100>" }
+			
+	has_attached_file :deal2,
+    :styles => {
+      :thumb=> "75x75#",
+      :small  => "100x100>" }
+			
+	has_attached_file :speciality1,
+    :styles => {
+      :thumb=> "75x75#",
+      :small  => "100x100>" }
+			
+	has_attached_file :speciality2,
+    :styles => {
+      :thumb=> "75x75#",
+      :small  => "100x100>" }
 
 	def merchantliked?(user)#has the current user liked the merchant
 		merchant_likes.find_by_user_id(user)

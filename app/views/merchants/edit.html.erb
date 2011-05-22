@@ -1,7 +1,7 @@
 <br/><br/><br/>
 <h1>Editing merchant </h1>
 
-<%= form_for @merchant do |f| %>
+<%= form_for @merchant, :html => {:multipart => true} do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <%= render :partial => 'form', :object => f %>
   <%= f.submit "Update merchant!!!" %>

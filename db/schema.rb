@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110518151905) do
+ActiveRecord::Schema.define(:version => 20110520160530) do
 
   create_table "associations", :force => true do |t|
     t.integer  "subgroup_id"
@@ -122,6 +122,21 @@ ActiveRecord::Schema.define(:version => 20110518151905) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "city_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.string   "deal1_file_name"
+    t.string   "deal1_content_type"
+    t.integer  "deal1_file_size"
+    t.string   "deal2_file_name"
+    t.string   "deal2_content_type"
+    t.integer  "deal2_file_size"
+    t.string   "speciality1_file_name"
+    t.string   "speciality1_content_type"
+    t.integer  "speciality1_file_size"
+    t.string   "speciality2_file_name"
+    t.string   "speciality2_content_type"
+    t.integer  "speciality2_file_size"
   end
 
   create_table "product_likes", :force => true do |t|

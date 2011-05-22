@@ -1,4 +1,10 @@
+<% if isadmin? %>	
+	<%= link_to 'Edit', edit_merchant_path %>
+<% end %>
 <div>
+	<div>
+		<%= image_tag @merchant.photo.url(:small) %>
+	</div>
 	<b>Name </b>
 	<%= @merchant.merchantname %>	<br/><br/>
 	<%= @merchant.merchantinfo %> <br/><br/>
@@ -8,6 +14,28 @@
 	<%= @merchant.tribecomment %> <br/><br/>
 	<b>City</b><%= @merchant.city.cityname %> <br/><br/>
 </div>
+
+	<div>
+		<% unless !@merchant.deal1_file_name %>
+			<%= image_tag @merchant.deal1.url(:small) %>
+		<% end %>
+	</div>
+	<div>
+		<% unless !@merchant.deal2_file_name %>
+			<%= image_tag @merchant.deal2.url(:small) %>
+		<% end %>
+	</div>
+	
+		<div>
+		<% unless !@merchant.speciality1_file_name %>
+			<%= image_tag @merchant.speciality1.url(:small) %>
+		<% end %>
+	</div>
+	<div>
+		<% unless !@merchant.speciality2_file_name %>
+			<%= image_tag @merchant.speciality2.url(:small) %>
+		<% end %>
+	</div>
 
 Deals offered by this merchant so far<br/>
 <%= render @deals %>
