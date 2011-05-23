@@ -1,42 +1,32 @@
-<div>
+<div class="signupform">
   <%= form.label :login %>
   <%= form.text_field :login %>
 </div>
-<div>
+<div class="signupform">
   <%= form.label :email %>
   <%= form.text_field :email %>
 </div>
-<div>
+<div class="signupform">
   <%= form.label :password, form.object.new_record? ? nil : "Change password" %>
   <%= form.password_field :password %>
 </div>
-<div>
+<div class="signupform">
   <%= form.label :password_confirmation %>
   <%= form.password_field :password_confirmation %>
 </div>
-<div>
+<div class="signupform">
 	<%= form.label :city_id %>
 	<%= form.collection_select(:city_id, City.all, :id, :cityname) %>
 </div>
-<div>
+<div class="signupform">
 	<%= form.label :sex %>
   <%= form.select( :sex, [["Male", "Male"], ["Female", "Female"]]) %>
 </div>
-<br/>
-<div>
+<div class="signupform">
 	<%= form.label :birthday %>
 	<%= form.date_select( :birthday,:date_separator => "-" , :start_year => 1960 ) %>
 </div>
-<br/>
-<div>
+<div class="signupform">
 	<%= form.label :profession %>
 	<%= form.text_field :profession %>
-</div>
-<br/>
-<div>
-	<%= form.label :aboutme %>
-	<%= form.text_area :aboutme ,:size => "40x5"%>
-</div>
-<div>
-	<%= form.file_field :photo %>
 </div>
