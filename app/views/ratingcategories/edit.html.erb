@@ -1,0 +1,11 @@
+<br/><br/><br/>
+<h1>Editing rating category</h1>
+
+<%= form_for @ratingcategory do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <%= render :partial => 'form', :object => f %>
+  <%= f.submit "Update rating category!!!" %>
+<% end %>
+
+<%= link_to 'Show', @ratingcategory %> |
+<%= link_to 'Back', ratingcategories_path %>

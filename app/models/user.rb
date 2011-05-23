@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
 	
 	has_many :merchantcomments, :dependent => :destroy
 	
+	has_many :ratings
+	
 	has_attached_file :photo, :styles => { 
 							:thumb => "50x50#", 
 							:small => "150x150>" }

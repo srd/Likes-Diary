@@ -10,3 +10,9 @@
 		<%= render @categories %>
 	</ul>
 <% end %>
+
+Rating categories<br/><br/>
+<% if isadmin? %>
+	<%= render :partial => "ratingcategories/ratingcategory",
+           :collection => @ratingcategories %>
+<% end %>

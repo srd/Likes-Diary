@@ -1,5 +1,11 @@
 <%= render 'shared/top' %>
 
+<% unless @categories.empty? %>
+	<ul class="users">
+		<%= render @categories %>
+	</ul>
+<% end %>
+
 <div>
 	<b>Name </b>
 	<%= @category.categoryname %>

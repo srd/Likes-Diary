@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110522140900) do
+ActiveRecord::Schema.define(:version => 20110523071343) do
 
   create_table "associations", :force => true do |t|
     t.integer  "subgroup_id"
@@ -170,6 +170,29 @@ ActiveRecord::Schema.define(:version => 20110522140900) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
   end
+
+  create_table "ratingcategories", :force => true do |t|
+    t.integer  "maingroup_id"
+    t.string   "ratingname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ratingcategories", ["maingroup_id"], :name => "index_ratingcategories_on_maingroup_id"
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.integer  "ratingcategory_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ratings", ["product_id"], :name => "index_ratings_on_product_id"
+  add_index "ratings", ["ratingcategory_id"], :name => "index_ratings_on_ratingcategory_id"
+  add_index "ratings", ["user_id", "product_id", "ratingcategory_id"], :name => "index_ratings_on_user_id_and_product_id_and_ratingcategory_id", :unique => true
+  add_index "ratings", ["user_id"], :name => "index_ratings_on_user_id"
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"

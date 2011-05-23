@@ -16,6 +16,7 @@ class CategoriesController < ApplicationController
 		@maingroups_all = Maingroup.all
 		@maingroups = @maingroups_all.group_by { |t| t.variety }
 		@subgroups = @category.subgroups.group_by { |t| t.subgroupname[0].upcase }
+		@categories = @category.maingroup.categories
   end
 
   def edit

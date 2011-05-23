@@ -11,7 +11,21 @@
 	<b>Details </b>
 	<%= @product.details %>
 </div>
+<br/><br/>
 
+<% @ratingnames = @product.subgroups[0].category.maingroup.ratingcategories %>
+<%= @ratingnames.count %>
+<br/><br/>
+<%= render :partial => '/ratingcategories/ratingcategory', 
+		:collection => @ratingnames %>
+<br/><br/>
+Rating
+
+<%= render 'products/rating' %>
+
+<%= render 'ratingform' %>
+
+<br/><br/>
 
 //add likes here
 <%= render 'like_form' if signedin? %>

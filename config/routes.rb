@@ -5,6 +5,7 @@ Likesdiary::Application.routes.draw do
 	resources :maingroups
 	resources :categories
 	resources :subgroups
+	resources :ratingcategories
 	resources :products do
 		resources :associations
 		resources :productcomments
@@ -23,6 +24,7 @@ Likesdiary::Application.routes.draw do
 	end
 	
 	resources :relationships, :only => [:create, :destroy]
+	resources :ratings, :only => [:create, :update]
 	resources :product_likes, :only => [:create, :destroy]
 	resources :merchant_likes, :only => [:create, :destroy]
 	resources :deal_likes, :only => [:create, :destroy]

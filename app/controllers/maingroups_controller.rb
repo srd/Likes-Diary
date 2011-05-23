@@ -13,10 +13,8 @@ class MaingroupsController < ApplicationController
 
   def show
 		@maingroup = Maingroup.find(params[:id])
-		@title = @maingroup.name
 		@categories = @maingroup.categories
-		@maingroups_all = Maingroup.all
-		@maingroups = @maingroups_all.group_by { |t| t.variety }
+		redirect_to @categories[0]
   end
 
   def edit

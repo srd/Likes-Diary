@@ -1,0 +1,11 @@
+<div id ="rating">
+	<br/>
+	<%= @product.average_rating %>
+	<b>begin of ratings</b><br/>
+	<% @ratings = current_user.ratings.find_by_product_id(params[:id]) %>
+	<% if @ratings %>
+		<%= @ratings.value %>
+		<%= @ratings.ratingcategory_id %>
+	<% end %>
+	<br/><b>end of ratings</b>
+</div>

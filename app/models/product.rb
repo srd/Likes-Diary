@@ -13,6 +13,8 @@ class Product < ActiveRecord::Base
 
 	validates :productname, :presence => true, :length => {:within => 2..500}
 	
+	has_many :ratings
+	
 	has_attached_file :photo,
     :styles => {
       :thumb=> "75x75#",
@@ -44,5 +46,14 @@ class Product < ActiveRecord::Base
 	
 	def unlikeProduct!(user)
 		product_likes.find_by_user_id(user).destroy
+	end
+	
+	def average_rating
+    @value = 0
+    self.ratings.each do |rating|
+        @value = @value + rating.value
+    end
+    @total = self.ratings.size
+    @value.to_f / @total.to_f
 	end
 end

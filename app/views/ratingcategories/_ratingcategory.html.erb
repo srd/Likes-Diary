@@ -1,0 +1,8 @@
+<%= ratingcategory.ratingname %>&nbsp;belongsto
+<%= ratingcategory.maingroup.name %>
+<% if isadmin? %>
+<%= link_to "Edit", edit_ratingcategory_path(ratingcategory) %>
+<%= link_to 'Show', ratingcategory %>
+<%= link_to 'Destroy', ratingcategory, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+<br/>
