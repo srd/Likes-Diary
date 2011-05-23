@@ -1,39 +1,42 @@
 <% if !current_user %>	
-  <br/><br/><br/><br/>
-  <h1>Sign in</h1>
-  <%= form_for @user_session, :url => {:action => "create", :controller => "user_sessions"} do |f| %>
-    <%= render 'shared/error_messages', :object => f.object %>
-	<table>
-	  <tr>
-			<td>
-				<div class="field">
-					<%= f.label :login %>
-					<%= f.text_field :login %>
-				</div>
-			</td>
-	  </tr>
-	  <tr>
-	    <td>
-		    <div class="field">
-					<%= f.label :password %>
-					<%= f.password_field :password %>
-				</div>
-			</td>
-	  </tr>
-	</table>
-	<div class="actions">
-	  <%= f.submit "Login" %>
-  </div>
-<% end %>
+	<div class="loginform">
+		<div class="signin">
+			Sign in
+		</div>
+		<%= form_for @user_session, :url => {:action => "create", :controller => "user_sessions"} do |f| %>
+    	<%= render 'shared/error_messages', :object => f.object %>
+		<div class="partform">	
+			<div><%= f.label :login %></div>
+			<div><%= f.text_field :login, :tabindex => '1' %></div>
+			<div style="margin:0px;"><input type="checkbox" name="rememberme" id="rememberme" tabindex='3'><label for="rememberme" id="remlabel">Remember Me<label></div>
+		</div>
+		<div class="partform">
+			<div><%= f.label :password %></div>
+			<div><%= f.password_field :password, :tabindex => '2' %></div>
+			<div><a href="#">Forgot Your Password?</a></div>
+		</div>
+		<div class="partform">
+		<%= f.submit "Sign In", :tabindex => '4' %>
+		</div>
+		<% end %>
+	</div>
+	<div style="clear:both;">
+	<hr />
+	</div>
 <% else %>
-  <%= link_to "Account", users_path %>
-  <%= link_to "Logout", logout_path %>
+	<%= link_to "Account", users_path %>
+	<%= link_to "Logout", logout_path %>
 <% end %>
 
-<%= link_to "Sign up now!", signup_path %>
-
-<%= form_for @user, :url => users_path, :html => {:multipart => true} do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-  <%= render :partial => 'users/form', :object => f %>
-  <%= f.submit "Register" %>
-<% end %>
+<div class="loginform">
+	<div class="signin">
+		Sign Up
+	</div>
+	<div id="signupform">
+		<%= form_for @user, :url => users_path, :html => {:multipart => true} do |f| %>
+			<%= render 'shared/error_messages', :object => f.object %>
+			<%= render :partial => 'users/form', :object => f %>
+			<%= f.submit "Sign Up" %>
+		<% end %>
+	</div>
+</div>
