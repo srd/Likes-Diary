@@ -6,7 +6,7 @@
 	<div style="float:left;padding-left:20px;padding-top:20px;">
 		<span style="color:#247885;font-size:20px;font-weight:bold;"><%= @user.login %></span>
 		<% if correct_user %>	
-			<span style="padding-left:8px;"><%= link_to 'edit', edit_user_path %></span>
+			<span style="padding-left:8px;"><%= link_to 'edit', edit_user_registration_path %></span>
 		<% end %> <br />
 		<% if @user.city %>
 			<%= @user.city.cityname %> City, India
@@ -19,6 +19,10 @@
 		<div class="rightprofile"><%= @user.profession %></div><br/>
 		<div class="rightprofileinfo"><b>About me:</b></div>
 		<div class="rightprofile"><%= @user.aboutme %></div>
+	</div>
+	<div style="float:left;padding-left:30px;">
+		<%= link_to "Following	 #{@user.following.count}", following_user_path(@user) %><br/>
+		<%= link_to "Followers   #{@user.followers.count}", followers_user_path(@user) %>
 	</div>
 	<div style="clear:both;"></div>
 </div>

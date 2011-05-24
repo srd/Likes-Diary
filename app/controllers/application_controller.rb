@@ -2,6 +2,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :current_user_session, :current_user, :correct_user, :is_admin?, :signed_in?, :isadmin?, :signedin?, :correct_user?
+	
+	layout :layout_by_resource
+
+  def layout_by_resource
+    if devise_controller? && resource_name == :user && action_name == 'new'
+      "signuplogin"
+    else
+      "profile"
+    end
+  end
 
   private
     def current_user_session

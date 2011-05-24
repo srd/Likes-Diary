@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+		render 'Hello'
     if @user.save
       flash[:notice] = "Successfully registered!"
       redirect_back_or_default users_path
@@ -46,6 +47,7 @@ class UsersController < ApplicationController
     @title = "Following"
     @user = User.find(params[:id])
     @users = @user.following.paginate(:page => params[:page])
+		@flag = 0
     render 'show_follow'
   end
 
@@ -53,6 +55,7 @@ class UsersController < ApplicationController
     @title = "Followers"
     @user = User.find(params[:id])
     @users = @user.followers.paginate(:page => params[:page])
+		@flag = 1
     render 'show_follow'
   end
 	
