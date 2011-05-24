@@ -15,6 +15,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+		@activities = @user.activities
+		@activitieslength = @activities.length
   end
 
   def edit
@@ -54,5 +56,12 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(:page => params[:page])
     render 'show_follow'
   end
+	
+	def feed
+		@user = User.find(params[:id])
+		@title = @user.login
+		@activities = @user.activities
+		@activitieslength = @activities.length
+	end
 
 end

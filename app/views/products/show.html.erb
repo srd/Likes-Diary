@@ -13,6 +13,9 @@
 </div>
 <br/><br/>
 
+<%= @product.subgroups.count %>
+
+<% if @product.subgroups.count!=0 %>
 <% @ratingnames = @product.subgroups[0].category.maingroup.ratingcategories %>
 <%= @ratingnames.count %>
 <br/><br/>
@@ -24,7 +27,7 @@ Rating
 <%= render 'products/rating' %>
 
 <%= render 'ratingform' %>
-
+<% end %>
 <br/><br/>
 
 //add likes here

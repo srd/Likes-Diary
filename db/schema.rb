@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110523071343) do
+ActiveRecord::Schema.define(:version => 20110523174428) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.integer  "item_type"
+    t.string   "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["created_at"], :name => "index_activities_on_created_at"
+  add_index "activities", ["item_id"], :name => "index_activities_on_item_id"
+  add_index "activities", ["user_id"], :name => "index_activities_on_user_id"
 
   create_table "associations", :force => true do |t|
     t.integer  "subgroup_id"

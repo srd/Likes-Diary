@@ -23,3 +23,8 @@
 	<%= image_tag @user.photo.url(:thumb) %>
 </p>
 
+<div>
+Feed
+<%= @activitieslength %>
+<%= render :partial => 'activities/activity', :collection => @activities %>
+</div>

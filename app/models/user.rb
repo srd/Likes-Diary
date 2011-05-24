@@ -37,6 +37,8 @@ class User < ActiveRecord::Base
 	has_attached_file :photo, :styles => { 
 							:thumb => "50x50#", 
 							:small => "150x150>" }
+							
+	has_many :activities
 	
 	def following?(followed)
 		relationships.find_by_followed_id(followed)

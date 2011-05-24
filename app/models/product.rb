@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
 	has_attached_file :photo,
     :styles => {
       :thumb=> "75x75#",
-      :small  => "200x200>" }
+      :small  => "200x200>" }, :default_url => '/images/missing_:style.jpg'
 	
 	def addSubGroup!(subgroup)
 		associations.create!(:subgroup_id => subgroup.id)
