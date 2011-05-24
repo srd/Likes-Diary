@@ -19,7 +19,17 @@ $(document).ready(function() {
     });
 
     // Submits the form (saves data) after user makes a change.
-    $('form.rating_ballot').change(function() {
-        $('form.rating_ballot').submit();
+    $('form.rating_ballot1').change(function() {
+        $('form.rating_ballot1').submit();
     });
+		$('form.rating_ballot2').change(function() {
+        $('form.rating_ballot2').submit();
+    });
+		$('form.rating_ballot3').change(function() {
+        $('form.rating_ballot3').submit();
+    });
+		$('form.rating_ballot4').change(function() {
+        $('form.rating_ballot4').submit();
+    });
+		
 });

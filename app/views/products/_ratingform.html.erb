@@ -1,20 +1,28 @@
-
+	
 <% content_for(:scripts) do %>
     <%= javascript_include_tag 'rating_ballot' %>
 <% end %>
-<%= form_for(rating_ballot, :html => { :class => 'rating_ballot' }) do |f| %>
-    <%= f.label("value_1", content_tag(:span, '1'), {:class=>"rating", :id=>"1"}) %>
-    <%= radio_button_tag("rating[value]", 1, current_user_rating == 1, :class => 'rating_button') %>
-    <%= f.label("value_2", content_tag(:span, '2'), {:class=>"rating", :id=>"2"}) %>
-    <%= radio_button_tag("rating[value]", 2, current_user_rating == 2, :class => 'rating_button') %>
-    <%= f.label("value_3", content_tag(:span, '3'), {:class=>"rating", :id=>"3"}) %>
-    <%= radio_button_tag("rating[value]", 3, current_user_rating == 3, :class => 'rating_button') %>
-    <%= f.label("value_4", content_tag(:span, '4'), {:class=>"rating", :id=>"4"}) %>
-    <%= radio_button_tag("rating[value]", 4, current_user_rating == 4, :class => 'rating_button') %>
-    <%= f.label("value_5", content_tag(:span, '5'), {:class=>"rating", :id=>"5"}) %>
-    <%= radio_button_tag("rating[value]", 5, current_user_rating == 5, :class => 'rating_button') %>
+<% @ratingballots = rating_ballots %>
+<% @currentratings = current_user_ratings %>
 
-    <%= hidden_field_tag("product_id", @product.id) %>
-		<%= hidden_field_tag("ratingcategory_id", 1) %>
-    <%= f.submit :Submit %>
+<br/>Number of ballots <%= @ratingballots.count %><br/>
+<% index = 1 %>
+<% @ratingballots.each do |key, rating_ballot| %>
+	<%= form_for(rating_ballot , :html => { :class => "rating_ballot#{index}" }) do |f| %>
+			<%= f.label("value_1", content_tag(:span, '1'), {:class=>"rating", :id=>"1"}) %>
+			<%= radio_button_tag("rating[value]", 1, @currentratings[key] == 1, :class => 'rating_button') %>
+			<%= f.label("value_2", content_tag(:span, '2'), {:class=>"rating", :id=>"2"}) %>
+			<%= radio_button_tag("rating[value]", 2, @currentratings[key] == 2, :class => 'rating_button') %>
+			<%= f.label("value_3", content_tag(:span, '3'), {:class=>"rating", :id=>"3"}) %>
+			<%= radio_button_tag("rating[value]", 3, @currentratings[key] == 3, :class => 'rating_button') %>
+			<%= f.label("value_4", content_tag(:span, '4'), {:class=>"rating", :id=>"4"}) %>
+			<%= radio_button_tag("rating[value]", 4, @currentratings[key] == 4, :class => 'rating_button') %>
+			<%= f.label("value_5", content_tag(:span, '5'), {:class=>"rating", :id=>"5"}) %>
+			<%= radio_button_tag("rating[value]", 5, @currentratings[key] == 5, :class => 'rating_button') %>
+			<%= hidden_field_tag("product_id", @product.id) %>
+			<%= hidden_field_tag("ratingcategory_id", key) %>
+			<%= f.submit :Submit %>
+	<% end %>
+	<% index = index +1 %>
+	<br/>
 <% end %>

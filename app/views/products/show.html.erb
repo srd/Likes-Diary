@@ -11,24 +11,41 @@
 	<b>Details </b>
 	<%= @product.details %>
 </div>
+<br/>
+<!--
+Testing multiple ratings
+<br/>
+<% @aratings = current_user.ratings.find_all_by_product_id(params[:id]) %>
+<%= @aratings.length %><br/>
+<% for @arating in @aratings %>
+	<%= @arating.ratingcategory_id %>
+<br/>
+<% end %>
+End of multiple ratings
 <br/><br/>
-
-<%= @product.subgroups.count %>
+-->
 
 <% if @product.subgroups.count!=0 %>
-<% @ratingnames = @product.subgroups[0].category.maingroup.ratingcategories %>
-<%= @ratingnames.count %>
-<br/><br/>
-<%= render :partial => '/ratingcategories/ratingcategory', 
-		:collection => @ratingnames %>
-<br/><br/>
-Rating
+	<% @ratingnames = @product.subgroups[0].category.maingroup.ratingcategories %>
+	The number of rating categories are <%= @ratingnames.count %>
+	<br/><br/>
+	Multiple<br/>
+	
+	<% @acurrentratings = current_user_ratings %>
+	<%= @acurrentratings %><br/>	
+	<br/>
+	
+	<br/><br/>
+	<%= render :partial => '/ratingcategories/ratingcategory', 
+			:collection => @ratingnames %>
+	<br/><br/>
+	Rating
 
-<%= render 'products/rating' %>
+	<%= render 'products/rating' %>
 
-<%= render 'ratingform' %>
+	<%= render 'ratingform' %>
 <% end %>
-<br/><br/>
+<br/>
 
 //add likes here
 <%= render 'like_form' if signedin? %>

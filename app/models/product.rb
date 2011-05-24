@@ -49,6 +49,8 @@ class Product < ActiveRecord::Base
 	end
 	
 	def average_rating
+		return 10;
+		#todo change later
     @value = 0
     self.ratings.each do |rating|
         @value = @value + rating.value
