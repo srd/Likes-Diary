@@ -2,62 +2,58 @@
 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<title><%= title %></title>
-	<%= render 'layouts/stylesheets' %>
-</head>
-<body>
-<%= render 'layouts/header1' %>
-<div id="wrap">
-<div id="leftsidebar">
-<div id="leftheader"></div>
-<div id="leftcontent">
-   <div id="userbox">
-	<div id="userinfo">
-		<%= render 'layouts/userinfo' %>
-	</div>
-		<%= render 'layouts/header2' %>
-<div id="leftfooter">
-<div class="rounded" id="leftfootertabs">
-<a href="<%= user_path(current_user) %>">
-	<table width="232" 
-Email
-
-Password
-height="44"><tr><td>
-		<img src="/images/info.png" height="30" align="right"></td><td width="20"> </td>
-		<td align="middle">Info</td><td width=80"> </td>
-		</tr></table>
-</a>
-</div>
-<div class="rounded" id="leftfootertabs">
-	<!-- <a href=" products_user_path(@user) "> -->
-	<a href="#">
-	<table width="232" height="44"><tr><td>
-		<img src="/images/likes.png" height="30" align="right"></td>
-                                        <td width="20"> </td>  
-		<td align="middle">Likes</td><td width="80"> </td>
-	</tr></table>
-	</a>
-</div>
-<div class="rounded" id="leftfootertabs">
-	<!-- <a href="deals_user_path(@user) "> -->
-	<a href="#">
-	<table width="232" height="44"><tr><td>
-		<img src="/images/cheaps.png" height="30" align="right"></td>
-		<td align="middle">Cheaps Archive</td>
-	</tr></table>
-	</a>
-</div>
-</div>
+	<head>
+		<title><%= title %></title>
+		<link type="text/css" rel="stylesheet" href="/stylesheets/profile.css">
+		<link type="text/css" rel="stylesheet" href="/stylesheets/header1.css">
+		<link type="text/css" rel="stylesheet" href="/stylesheets/custom.css">
+		<!-- <%= render 'layouts/stylesheets' %> -->
+	</head>
+	<body>
+		<%= render 'layouts/header1' %>
+		<div id="wrap">
+			<div id="leftsidebar">
+				<div id="leftcontent">
+			   		<div id="userbox">
+						<div id="userinfo">
+							<%= render 'layouts/userinfo' %>
+						</div>
+						<%= render 'layouts/header2' %>
+						<div id="leftfooter">
+							<div class="rounded" id="leftfootertabs" style="overflow:auto;">
+								<a href="<%= user_path(current_user) %>">
+									<div style="float:left;">
+										<img src="/images/info.png" height="30" style="float:left;padding-left:32px;padding-top:8px;width:auto;" />
+									</div>
+									<div style="text-align:center;float:left;padding-top:13px;padding-left:42px;">Info</div>
+								</a>
+							</div>
+							<div class="rounded" id="leftfootertabs">
+		<!-- <a href=" products_user_path(@user) "> -->
+								<a href="#">
+									<div style="float:left;">
+										<img src="/images/likes.png" height="30" style="float:left;padding-left:29px;padding-top:8px;width:auto;" />
+									</div>
+									<div style="text-align:center;float:left;padding-top:13px;padding-left:36px;">Likes</div>
+								</a>
+							</div>
+							<div class="rounded" id="leftfootertabs">
+								<!-- <a href="deals_user_path(@user) "> -->
+								<a href="#">
+									<div style="float:left;">
+										<img src="/images/cheaps.png" height="30" style="float:left;padding-left:29px;padding-top:8px;width:auto;" />
+									</div>
+									<div style="text-align:center;float:left;padding-top:13px;padding-left:30px;">Cheaps Archive</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+			<div id="container">
+				<%= render 'layouts/headertabs' %>
+			</div>
+			<div id="wrap2"><%= yield %></div>
 		</div>
-	</div>
-
-<div id="container">
-<%= render 'layouts/headertabs' %>
-</div>
-<div id="wrap2"><%= yield %></div>
-</div>
-</body>
+	</body>
 </html>

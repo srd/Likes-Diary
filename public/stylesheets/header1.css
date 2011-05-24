@@ -1,0 +1,115 @@
+#welcometopbar {
+    width: 100%;
+    height: 50px; 
+    position: auto;
+    z-index: 999;
+	box-shadow: 0px 0px 10px  #000;
+}
+
+#fixed {
+	position:fixed;
+	z-index:3;
+	background:white;
+	top:0px;
+	left:0px;
+	right:0px;
+}
+
+#welcomebottombar{
+    width: 100%;
+    height: 67px;
+    background: url("/images/bottom_layer.png") bottom right no-repeat;
+	position:fixed;
+	bottom:0px;
+}
+
+.gradient {
+		height: 100%;
+		/* For WebKit (Safari, Google Chrome etc) */
+		background: -webkit-gradient(linear, left bottom, left top, from(#227784), to(#4488c2));
+		/* For Mozilla/Gecko (Firefox etc) */
+		background: -moz-linear-gradient(top, #227784, #4488c2);
+		/* For Internet Explorer 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#227784, endColorstr=#4488c2);
+		/* For Internet Explorer 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#227784, endColorstr=#4488c2)";
+}
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	font-color: #247885;
+	font-size: 12px;
+	background: #FFF;
+}
+
+#welcomewrap {
+    margin: 0px auto;
+    padding: 0px;
+    position: auto;
+    background-color: #f1f8f9;
+}
+
+#welcomelogo {
+	overflow:hidden;
+	z-index:1000;
+	margin:-55px 0px 0px 0px
+}
+
+#logo {
+	float:left;
+	padding-top:20px;
+}
+
+#top_container {    
+	margin: auto;
+    width: 1104px;       
+}
+
+#welcomebottombar{
+    width: 100%;
+    height: 67px;
+    background: url("/images/bottom_layer.png") bottom right no-repeat;
+	position:fixed;
+	bottom:0px;
+}
+
+.gradient {
+		height: 100%;
+		/* For WebKit (Safari, Google Chrome etc) */
+		background: -webkit-gradient(linear, left bottom, left top, from(#227784), to(#4488c2));
+		/* For Mozilla/Gecko (Firefox etc) */
+		background: -moz-linear-gradient(top, #227784, #4488c2);
+		/* For Internet Explorer 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#227784, endColorstr=#4488c2);
+		/* For Internet Explorer 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#227784, endColorstr=#4488c2)";
+}
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	font-color: #247885;
+	font-size: 12px;
+	background: #FFF;
+	margin:0px;
+}
+
+#welcomelogo {
+	overflow:hidden; 
+	z-index:1000;
+}
+
+#logo {
+	float:left;
+	padding-top:20px;
+}
+
+#signout {
+	margin-top:20px;
+	font-size:14px;
+	float:right;
+}
+
+#signout a {
+	text-decoration:none;
+	color:white;
+}

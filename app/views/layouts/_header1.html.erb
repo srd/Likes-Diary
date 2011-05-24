@@ -1,16 +1,11 @@
-<div id="topbar">
-
-	<div id="header">
-		<table width="1104" height="47" style="z-index:10000"><tr>
-			<td width="235"></td>
-			<td align="left">
-				<!--form method="GET" action="#" id="login_form" onsubmit="#">
-					<input type="text" name="search" tabindex="1" value="Search">
-                                </form-->
-			</td>
-			<td align="right">
-				<a href=<%= logout_path %> style="color:white;"><h5>Sign Out</h5></a>
-			</td>
-		</tr></table>
+<div id="fixed">
+	<div class="gradient" id="welcometopbar"></div>
+	<div id="top_container">
+		<div id="welcomelogo">
+			<div id="logo"><a href="/"><img src="/images/welcome_logo.png"></a></div>
+			<div id="signout">
+				<%= link_to "Sign Out", logout_path %>
+			</div>
+		</div>
 	</div>
 </div>

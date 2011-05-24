@@ -1,21 +1,11 @@
-	<div id="infolink">
-<table><tr>
-	<td><div class="rounded" id="button">
-		<a href="<%= following_user_path(current_user) %>">
-			<table width="106" height="32"><tr><td>
-				<img src="/images/friends.png"></td>
-				<td align="left">Friends</td>
-			</tr></table>
-		</a>
-	</div></td>
-	<td><div class="rounded" id="button">
-		<a href="<%= user_path(current_user) %>">
-			<table width="106" height="32"><tr><td></td>
-				<td>Profile</td>
-			</tr></table>
-		</a>
-	</div></td></tr>
-</table>
-				</div>
-				
-				<font size=2 color=#247885><%= render 'shared/stats' %></font>
+<div id="infolink">
+	<div id="button" class="rounded">
+				<img style="padding:2px 0px 1px 2px;float:left;"src="/images/friends.png">
+				<div style="padding:5px 0px 5px 30px;"><%= link_to "Friends", following_user_path(current_user) %></div>
+	</div>
+	<div id="button" class="rounded">
+		<div style="padding:5px 0px 5px 30px;"><a href="<%= user_path(current_user) %>">Profile</a></div>
+	</div>
+	<div style="clear:both;"></div>
+</div>
+<div style="color:#247885;text-align:center;width:100%;"><%= render 'shared/stats' %></div>
