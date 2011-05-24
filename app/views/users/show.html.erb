@@ -1,25 +1,25 @@
-<br/><br/><br/>
 <%= render 'follow_form' if signedin? %>
-<% if correct_user %>	
-	<%= link_to 'Edit', edit_user_path %>
-<% end %>
-<p>
-	<%= image_tag @user.photo.url(:small) %>
-  <b>Login:</b>
-  <%= @user.login %>
-	<br/><br/><br/>
-	<b>City: </b>
-	<% if @user.city %>
-		<%= @user.city.cityname %>
-	<% end %><br/>
-	<b>Sex: </b>
-	<%= @user.sex %><br/>
-	<b>Birthday: </b>
-	<%= @user.birthday %><br/>
-	<b>Profession:</b>
-	<%= @user.profession %><br/>
-	<b>About me:</b>
-	<%= @user.aboutme %>
-	<%= image_tag @user.photo.url(:thumb) %>
-</p>
-
+<div style="padding-top:20px;padding-left:200px;">
+	<div style="float:left;">
+		<%= image_tag @user.photo.url(:small) %>
+	</div>
+	<div style="float:left;padding-left:20px;padding-top:20px;">
+		<span style="color:#247885;font-size:20px;font-weight:bold;"><%= @user.login %></span>
+		<% if correct_user %>	
+			<span style="padding-left:8px;"><%= link_to 'edit', edit_user_path %></span>
+		<% end %> <br />
+		<% if @user.city %>
+			<%= @user.city.cityname %> City, India
+		<% end %> <br /> <br />
+		<div class="rightprofileinfo"><b>Sex:</b> </div>
+		<div class="rightprofile"><%= @user.sex %></div><br/>
+		<div class="rightprofileinfo"><b>Birthday: </b></div>
+		<div class="rightprofile"><%= @user.birthday %></div><br/>
+		<div class="rightprofileinfo"><b>Profession:</b></div>
+		<div class="rightprofile"><%= @user.profession %></div><br/>
+		<div class="rightprofileinfo"><b>About me:</b></div>
+		<div class="rightprofile"><%= @user.aboutme %></div>
+	</div>
+	<div style="clear:both;"></div>
+</div>
+<hr />

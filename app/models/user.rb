@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 	
 	has_attached_file :photo, :styles => { 
 							:thumb => "50x50#", 
-							:small => "150x150>" }
+							:small => "150x150>" }, :default_url => '/images/users/missing_:style.jpg'
 	
 	def following?(followed)
 		relationships.find_by_followed_id(followed)
