@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-	before_filter :signed_in?
+	before_filter :authenticate_user!
 	before_filter :authorized_user, :only => :destroy
 
 	def create

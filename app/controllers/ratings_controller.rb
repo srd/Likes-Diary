@@ -17,8 +17,8 @@ class RatingsController < ApplicationController
 	
 	def update
 		@product = Product.find_by_id(params[:product_id])
-		@ratingcategory = Ratingcategory.find_by_id(params[:ratingcateogry_id])
-		@rating = current_user.ratings.find_by_product_id(@product.id)
+		@ratingcategory = Ratingcategory.find_by_id(params[:ratingcategory_id])
+		@rating = current_user.ratings.find_by_ratingcategory_id(@ratingcategory.id)
 		if @rating.update_attributes(params[:rating])
 			respond_to do |format|
 				format.js

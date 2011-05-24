@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
-  acts_as_authentic do |c|
-		failed_login_ban_for = 24.hours
-  end
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :encryptable, :omniauthable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
 	
   belongs_to :city
   has_many :relationships, :foreign_key => "follower_id",
@@ -37,6 +41,7 @@ class User < ActiveRecord::Base
 	has_attached_file :photo, :styles => { 
 							:thumb => "50x50#", 
 							:small => "150x150>" }, :default_url => '/images/users/missing_:style.jpg'
+	has_many :activities
 	
 	def following?(followed)
 		relationships.find_by_followed_id(followed)
@@ -50,4 +55,23 @@ class User < ActiveRecord::Base
 		relationships.find_by_followed_id(followed).destroy
 	end
 	
+	def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+    # Get the user email info from Facebook for sign up
+    # You'll have to figure this part out from the json you get back
+    #data = ActiveSupport::JSON.decode(access_token.get('https://graph.facebook.com/me?'))
+		data = access_token['extra']['user_hash']
+    if user = User.find_by_email(data["email"])
+      user
+    else
+      # Create an user with a stub password.
+      User.create!(:email => data["email"], :password => Devise.friendly_token)
+    end
+  end	
+	def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["user_hash"]
+        user.email = data["email"]
+      end
+    end
+  end
 end

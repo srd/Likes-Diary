@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 	layout 'profile', :except => [:new]
-  before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update, :following, :followers]
+  before_filter :authenticate_user!, :only => [:edit, :update, :following, :followers]
   def new
     @title = "Sign up"
     @user = User.new
@@ -15,6 +14,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+		@activities = @user.activities
+		@activitieslength = @activities.length
   end
 
   def edit
@@ -54,5 +55,12 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(:page => params[:page])
     render 'show_follow'
   end
+	
+	def feed
+		@user = User.find(params[:id])
+		@title = @user.login
+		@activities = @user.activities
+		@activitieslength = @activities.length
+	end
 
 end

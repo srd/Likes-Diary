@@ -1,5 +1,5 @@
 class DealLikesController < ApplicationController
-	before_filter :signed_in?
+	before_filter :authenticate_user!
 
   def create
 		@deal = Deal.find_by_id(params[:deal_like][:deal_id])

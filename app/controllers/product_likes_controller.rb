@@ -1,5 +1,5 @@
 class ProductLikesController < ApplicationController
-	before_filter :signed_in?
+	before_filter :authenticate_user!
 
   def create
 		@product = Product.find_by_id(params[:product_like][:product_id])

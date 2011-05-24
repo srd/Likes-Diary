@@ -1,6 +1,6 @@
 <h1>Edit my account</h1>
 
-<%= form_for @user, :url => user_path(current_user), :html => {:multipart => true} do |f| %>
+<%= form_for @user, :url => current_user, :html => {:multipart => true} do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div>
 		<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
