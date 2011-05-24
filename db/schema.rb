@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110523174428) do
+ActiveRecord::Schema.define(:version => 20110524131014) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -239,22 +239,21 @@ ActiveRecord::Schema.define(:version => 20110523174428) do
   add_index "subgroups", ["category_id"], :name => "index_subgroups_on_category_id"
 
   create_table "users", :force => true do |t|
-    t.string   "login",                                 :null => false
-    t.string   "email",                                 :null => false
-    t.string   "crypted_password",                      :null => false
-    t.string   "password_salt",                         :null => false
-    t.string   "persistence_token",                     :null => false
-    t.integer  "login_count",        :default => 0,     :null => false
-    t.integer  "failed_login_count", :default => 0,     :null => false
+    t.string   "login",                                   :null => false
+    t.string   "email",                                   :null => false
+    t.string   "encrypted_password",                      :null => false
+    t.string   "password_salt",                           :null => false
+    t.integer  "sign_in_count",        :default => 0,     :null => false
+    t.integer  "failed_attempts",      :default => 0,     :null => false
     t.datetime "last_request_at"
-    t.datetime "current_login_at"
-    t.datetime "last_login_at"
-    t.string   "current_login_ip"
-    t.string   "last_login_ip"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "city_id"
-    t.boolean  "admin",              :default => false
+    t.boolean  "admin",                :default => false
     t.string   "sex"
     t.string   "profession"
     t.date     "birthday"
@@ -262,10 +261,18 @@ ActiveRecord::Schema.define(:version => 20110523174428) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
+    t.string   "reset_password_token"
+    t.string   "remember_token"
+    t.datetime "remember_created_at"
+    t.string   "authentication_token"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unlock_token"
+    t.datetime "locked_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
-  add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token", :unique => true
 
 end

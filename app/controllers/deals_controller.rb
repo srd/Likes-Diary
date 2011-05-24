@@ -1,7 +1,7 @@
 class DealsController < ApplicationController
 	layout 'cheapsdiary'
 	before_filter :is_admin?, :only => [:new, :index, :edit, :update, :create, :destroy]
-	before_filter :signed_in?, :only => [:current_deal]
+	before_filter :authenticate_user!, :only => [:current_deal]
 	
   def new
 		@title = "Create a new deal"

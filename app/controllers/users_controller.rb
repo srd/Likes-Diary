@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 	layout 'profile', :except => [:new]
-  before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update, :following, :followers]
+  before_filter :authenticate_user!, :only => [:edit, :update, :following, :followers]
   def new
     @title = "Sign up"
     @user = User.new

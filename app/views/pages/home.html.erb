@@ -3,22 +3,25 @@
 		<div class="signin">
 			Sign in
 		</div>
-		<%= form_for @user_session, :url => {:action => "create", :controller => "user_sessions"} do |f| %>
-    	<%= render 'shared/error_messages', :object => f.object %>
-		<div class="partform">	
-			<div><%= f.label :login %></div>
-			<div><%= f.text_field :login, :tabindex => '1' %></div>
-			<div style="margin:0px;"><input type="checkbox" name="rememberme" id="rememberme" tabindex='3'><label for="rememberme" id="remlabel">Remember Me<label></div>
+		<div>
+		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 		</div>
-		<div class="partform">
-			<div><%= f.label :password %></div>
-			<div><%= f.password_field :password, :tabindex => '2' %></div>
-			<div><a href="#">Forgot Your Password?</a></div>
-		</div>
-		<div class="partform">
-		<%= f.submit "Sign In", :tabindex => '4' %>
-		</div>
-		<% end %>
+		<%= form_for("user", :as => 'user', :url => user_session_path) do |f| %>
+			<div class ="partform">
+				<div><%= f.label :email %></div>
+				<div><%= f.text_field :email, :tabindex => '1' %></div>
+				<div style="margin:0px;"><%= f.label :remember_me %>
+				<%= f.check_box :remember_me, :tab_index => '3' %>
+			</div>
+			<div class="partform">
+				<div><%= f.label :password %></div>
+				<div><%= f.password_field :password, :tabindex => '2' %></div>
+				<div><%= link_to "Forgot your password?", new_password_path('user') %></div>
+			</div>
+			<div class="partform">
+				<%= f.submit 'Sign in' , :tabindex => '4' %>
+			</div>
+		<% end %>		
 	</div>
 	<div style="clear:both;">
 	<hr />

@@ -6,7 +6,8 @@ gem 'rails', '3.0.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'authlogic'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'will_paginate'
 gem 'paperclip'
 

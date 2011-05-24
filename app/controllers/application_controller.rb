@@ -5,13 +5,6 @@ class ApplicationController < ActionController::Base
 
   private
     def current_user_session
-      return @current_user_session if defined?(@current_user_session)
-      @current_user_session = UserSession.find
-    end
-
-    def current_user
-      return @current_user if defined?(@current_user)
-      @current_user = current_user_session && current_user_session.user
     end
 
     def require_user
@@ -65,19 +58,8 @@ class ApplicationController < ActionController::Base
 			return true
 		end
 		
-		def signed_in?
-			unless current_user
-				redirect_to root_path
-				return false
-			end
-			return true
-		end
-		
 		def signedin?
-			unless current_user
-				return false
-			end
-			return true
+			user_signed_in?
 		end
 
 end

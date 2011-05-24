@@ -1,5 +1,5 @@
 class MerchantLikesController < ApplicationController
-	before_filter :signed_in?
+	before_filter :authenticate_user!
 
   def create
 		@merchant = Merchant.find_by_id(params[:merchant_like][:merchant_id])
