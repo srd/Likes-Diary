@@ -1,5 +1,4 @@
-Welcome to Likes Diary
-<br/><br/>List of all the users<br/><br/>
+<div style=""></div>
 
 <%= form_tag users_path, :method => 'get' do %>  
 	<p>  
@@ -9,6 +8,9 @@ Welcome to Likes Diary
 <% end %>  
 <%= will_paginate @users %>
 
-<%= render @users %>
+<div style="overflow:auto;">
+	<%= render @users %>
+</div>
+<div style="clear:both;"></div>
 
 <%= will_paginate @users %>
