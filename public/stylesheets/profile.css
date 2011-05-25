@@ -164,6 +164,7 @@
     width: 863px;
     position: relative;
     background-color: #f1f8f9;
+		overflow:auto;
 }
 
 .rightprofileinfo {

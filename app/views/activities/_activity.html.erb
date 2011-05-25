@@ -1,22 +1,51 @@
+<div style="background-color:#DAE9EA;margin-bottom:5px;border-radius:10px;padding-left:10px;padding-top:5px;padding-bottom:5px;overflow:auto;width:650px;text-align:left;">
 <% case activity.item_type %>
 	<% when "ProductLike" %>
-		<%= image_tag activity.user.photo.url(:thumb) %>
-		<%= link_to "#{activity.user.login}", activity.user %> likes the product
-		<%= link_to "#{activity.item.product.productname}", activity.item.product %><br/>
-		<%= time_ago_in_words(activity.created_at) %>&nbsp;ago<br/>
+		<div style="float:left"><%= image_tag activity.user.photo.url(:thumb) %></div>
+		<div style="padding-left:5px;float:left">
+			<%= link_to "#{activity.user.login}", activity.user %> liked the product <br/>
+			<div style="padding-top:5px;padding-left:5px;">
+				<div style="float:left"><%= image_tag activity.item.product.photo.url(:thumb) %></div>
+				<div style="float:left;font-size:20px;padding-left:10px;"><%= link_to "#{activity.item.product.productname}", activity.item.product %>
+					<div style="font-size:14px;width:500px;"><%= "#{activity.item.product.details[0,100]} ... " %></div>
+					<br/>
+				</div><br/>				
+			</div>
+		</div>
+		<div style="color:gray;float:bottom;font-size:12px;"><%= time_ago_in_words(activity.created_at) %>&nbsp;ago</div>
 	<% when "Relationship" %>
-		<%= image_tag activity.user.photo.url(:thumb) %>
-		<%= link_to "#{activity.user.login}", activity.user %> is now following
+		<div style="float:left"><%= image_tag activity.user.photo.url(:thumb) %><br/></div>
+		<div style="float:left;padding-left:10px;padding-top:10px;"><%= link_to "#{activity.user.login}", activity.user %> is now following
 		<%= link_to "#{activity.item.followed.login}", activity.item.followed %><br/>
-		<%= time_ago_in_words(activity.created_at) %>&nbsp;ago<br/>
+		</div>
+		<div style="clear:both"></div>
+		<div style="color:gray;"><%= time_ago_in_words(activity.created_at) %>&nbsp;ago<br/></div>
 	<% when "Productcomment" %>
-		<%= image_tag activity.user.photo.url(:thumb) %>
-		<%= link_to "#{activity.user.login}", activity.user %> commented on the product 
-		<%= link_to "#{activity.item.product.productname}", activity.item.product %><br/>
-		<%= time_ago_in_words(activity.created_at) %>&nbsp;ago<br/>
+		<div style="float:left"><%= image_tag activity.user.photo.url(:thumb) %></div>
+		<div style="padding-left:5px;float:left">
+			<%= link_to "#{activity.user.login}", activity.user %> commented on the product <br/>
+			<div style="padding-top:5px;padding-left:5px;">
+				<div style="float:left"><%= image_tag activity.item.product.photo.url(:thumb) %></div>
+				<div style="float:left;font-size:20px;padding-left:10px;"><%= link_to "#{activity.item.product.productname}", activity.item.product %>
+					<div style="font-size:14px;width:500px;"><%= "#{activity.item.product.details[0,100]} ... " %></div>
+					<div style="font-size:12px;width:350px;background-color:white;margin-top:10px;margin-left:20px;border-radius:10px"><%= activity.item.content %> </div>
+				</div><br/>				
+			</div>
+		</div>
+		<div style="color:gray;float:bottom;font-size:12px;"><%= time_ago_in_words(activity.created_at) %>&nbsp;ago</div>
 	<% when "Review" %>
-		<%= image_tag activity.user.photo.url(:thumb) %>
-		<%= link_to "#{activity.user.login}", activity.user %> added a review to the product
-		<%= link_to "#{activity.item.product.productname}", activity.item.product %><br/>
-		<%= time_ago_in_words(activity.created_at) %>&nbsp;ago<br/>
+		<div style="float:left"><%= image_tag activity.user.photo.url(:thumb) %></div>
+		<div style="padding-left:5px;float:left">
+			<%= link_to "#{activity.user.login}", activity.user %> reviewed the product <br/>
+			<div style="padding-top:5px;padding-left:5px;">
+				<div style="float:left"><%= image_tag activity.item.product.photo.url(:thumb) %></div>
+				<div style="float:left;font-size:20px;padding-left:10px;"><%= link_to "#{activity.item.product.productname}", activity.item.product %>
+					<div style="font-size:14px;width:500px;"><%= "#{activity.item.product.details[0,100]} ... " %></div>
+					<div style="font-size:12px;width:350px;background-color:white;margin-top:10px;margin-left:20px;border-radius:10px"><%= activity.item.content %> </div>
+				</div><br/>				
+			</div>
+		</div>
+		<div style="color:gray;float:bottom;font-size:12px;"><%= time_ago_in_words(activity.created_at) %>&nbsp;ago</div>
 <% end %>
+</div>
+<div style="clear:both"/>

@@ -1,14 +1,9 @@
-<%= image_tag review.user.photo.url(:thumb) %>
-<%= review.user.login %>
-<br/>
-Review:
-<%= review.content %>
-<br/>
-<div>
-Posted <%= time_ago_in_words(review.created_at) %> ago.
-<br/>
+<div style="background-color:#DAE9EA;height:65px;margin-bottom:5px;border-radius:10px;padding-left:10px;padding-top:5px;padding-bottom:5px;width:400px">
+<div style="float:left"><%= image_tag review.user.photo.url(:thumb) %><br/><%= link_to review.user.login, review.user %></div>
+	<div style="float:left;padding-left:30px;">
+		<div style="height:50px; width:300px;"><%= review.content %></div>		<div style="color:gray;float:bottom">Posted <%= time_ago_in_words(review.created_at) %> ago.</div>
+	</div>
 <% if correct_user?(review.user) %>
 <!-- <%= link_to 'X', [review.product, review],  :confirm => 'Are you sure?', :method => :delete %> -->
 <% end %>
-<br/><br/>
-
+</div>

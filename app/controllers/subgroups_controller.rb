@@ -1,5 +1,5 @@
 class SubgroupsController < ApplicationController
-	layout 'likesdiary'
+	layout 'profile'
 	before_filter :is_admin?, :except => [:show]
   def new
 		@title = "Create a new Category"

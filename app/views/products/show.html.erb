@@ -5,54 +5,53 @@
 	<%= image_tag @product.photo.url(:small) %>
 </div>
 <div style="padding:20px;">
-	<div style="font-size:20px;font-weight:bold;color:#247885"><%= @product.productname %><%= render 'like_form' if signedin? %></div>
-	<div style="padding-top:10px;"><%= @product.details %></div>
+	<div style="font-size:20px;font-weight:bold;color:#247885"><%= @product.productname %></div>
+	<%= render 'like_form' if signedin? %>
+	<div style="float:left;padding-left:10px;"><%= link_to "#{@product.users.count} likes", users_product_path%></div>
+	
+		<% if @product.subgroups.count!=0 %>
+			<div style="float:left;padding-left:50px;">
+				<% @ratingnames = @product.subgroups[0].category.maingroup.ratingcategories %>
+				<%= render :partial => '/ratingcategories/ratingcategory', 
+					:collection => @ratingnames %>
+			</div>
+			<div style="float:left;padding-left:15px">
+				<%= render 'products/rating' %>
+				<%= render 'ratingform' %>
+			</div>	
+		<% end %>
+	
 </div>
-<br/>
+	<div style="clear:both"/>
+	<div style="padding-left:20px;"><%= @product.details %></div>
 
-<div style="float:left;padding-right:20px;">
-<% if @product.subgroups.count!=0 %>
-	<% @ratingnames = @product.subgroups[0].category.maingroup.ratingcategories %>
-	<%= render :partial => '/ratingcategories/ratingcategory', 
-			:collection => @ratingnames %>
-</div>
-<div style="float:left">
-	<%= render 'products/rating' %>
-
-	<%= render 'ratingform' %>
-<% end %>
-
-
-</div>
 <div style="clear:both"></div>
 
 <div style="float:left;padding-left:15px">
 <% if signedin? %>
+	<h2>Comments</h2>
 	<div style="padding-bottom:10px;width:410px"><%= render 'products/commentsform' if signedin? %></div>
 
 	<%= render :partial => "productcomments/productcomment",
            :collection => @comments %>
 
 <% end %>
-<%= link_to "More", productcomments_product_path %>
+<%= link_to "More comments", productcomments_product_path %>
 </div>
 
 <div style="float:left;padding-left:15px">
 <% if signedin? %>
 	<h2>Reviews</h2>
-	Count is:
-	<%= @product.reviews.count %><br/>
-	//need to paginate reviews later
-	<br/><br/>
+	<div style="padding-bottom:10px;width:410px"><%= render 'products/reviewsform' if signedin? %></div>
 	<%= render :partial => "reviews/review",
            :collection => @reviews %>
 <% end %>
-<%= link_to "More", reviews_product_path %>
+<%= link_to "More reviews", reviews_product_path %>
 </div>
-
+<div style="clear:both"></div>
 <br/><br/>
 
-<%= render 'products/reviewsform' if signedin? %>
+
 
 <br/><br/>
 <% if isadmin? %>
