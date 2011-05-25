@@ -1,13 +1,10 @@
-Welcome to Likes Diary
-<br/><br/>List of all the products<br/><br/>
-<%= render 'products/searchform' %>
-
-	<%= will_paginate @products%>
+<div style="text-align:center">	<%= will_paginate @products%></div>
 <div id="products">
 	<%= render @products %>
 </div>
-	<%= will_paginate @products%>
+<div style="clear:both;"></div>
+<div style="text-align:center"> <%= will_paginate @products%> </div>
 <br/><br/>
 <% if isadmin? %>
-<%= link_to "New product", new_product_path %>
+	<%= link_to "New product", new_product_path %>
 <% end %>
