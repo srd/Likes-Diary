@@ -1,5 +1,5 @@
 class MaingroupsController < ApplicationController
-	layout 'likesdiary'
+	layout 'profile'
 	before_filter :is_admin?, :except => [:index, :show]
   def new
 		@title = "Create a new Maingroup"

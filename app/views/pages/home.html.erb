@@ -3,15 +3,17 @@
 		<div class="signin">
 			Sign in
 		</div>
-		<div>
+<!--		<div>
 		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-		</div>
+		</div> -->
 		<%= form_for("user", :as => 'user', :url => user_session_path) do |f| %>
 			<div class ="partform">
 				<div><%= f.label :email %></div>
 				<div><%= f.text_field :email, :tabindex => '1' %></div>
-				<div style="margin:0px;"><%= f.label :remember_me %>
-				<%= f.check_box :remember_me, :tab_index => '3' %>
+				<div style="margin:0px;">
+					<%= f.label :remember_me, :id => 'remlabel' %>
+					<%= f.check_box :remember_me, :tab_index => '3' %>
+				</div>
 			</div>
 			<div class="partform">
 				<div><%= f.label :password %></div>

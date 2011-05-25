@@ -186,3 +186,8 @@
 	font-size:10px;
 	margin-bottom:3px;
 }
+
+.dbitem:hover {
+	background-color:#4488c2;
+	color:white;
+}

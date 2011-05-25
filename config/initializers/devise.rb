@@ -186,7 +186,8 @@ Devise.setup do |config|
 	# TODO :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}},
 	
 	config.omniauth :facebook, '207003076005445', 'ba12987ac6ad46da1aeb33d8746cc3fb', 
-	:client_options => {:ssl => {:verify => false}},
+	:client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}},
+#	:client_options => {:ssl => {:verify => false}},
   :site => 'https://graph.facebook.com/',
   :authorize_path => '/oauth/authorize',
   :access_token_path => '/oauth/access_token',

@@ -1,6 +1,11 @@
-<% @maingroups.keys.sort.each do |variety| %>
-<p><%= variety %></p>
-	<% for group in @maingroups[variety] %>
-		<%= link_to group.name , group %><br/>
+<div style="padding:8px 20px 20px 20px;">
+	<% @maingroups.keys.sort.each do |variety| %>
+		<div style="float:left;padding:15px 0px 15px 0px; background-color:#c8e8de;margin-right:15px; border-radius:8px;">
+			<% for group in @maingroups[variety] %>
+				<div style="font-size:15px;padding:0px 30px 0px 30px;" class="dbitem"><%= link_to group.name , group %></div>
+			<% end %>
+		</div>
 	<% end %>
-<% end %>
+</div>
+<div style="clear:both;"></div>
+<hr />

@@ -1,27 +1,46 @@
 <%= render 'shared/top' %>
 
-<% unless @categories.empty? %>
-	<ul class="users">
-		<%= render @categories %>
-	</ul>
-<% end %>
-
-<div>
-	<b>Name </b>
-	<%= @category.categoryname %>
-	<%= @category.maingroup.name %>
+<div style="padding-left:20px;padding-right:20px;color:#247885;font-weight:bold;font-size:15px;">
+	<div style="float:left;">Browse by categories:</div>
+		<% unless @categories.empty? %>
+			<ul class="users">
+	<div style="float:right;padding-left:5px;padding-right:5px;">
+				<%= render @categories %>
+	</div>
+	<div style="float:right">Group By:</div>
+			</ul>
+		<% end %>
+	<div style="clear:both;"></div>
 </div>
-<br/><br/>
-<br/><br/>
-//show all the subgroups
+
+<% counter = 0 %>
+<% section = 1 %>
+
+<div style="padding-left:20px;padding-top:10px;">
 
 <% unless @subgroups.empty? %>
-
-<% @subgroups.keys.sort.each do |variety| %>
-<p><%= variety %></p>
-	<% for group in @subgroups[variety] %>
-		<%= link_to group.subgroupname , group %><br/>
+	<% @subgroups.keys.sort.each do |variety| %>
+		<% if variety <= 'F' %>
+			<% section = 1 %>
+		<% elsif variety <= 'L' %>
+			<% section = 2 %>
+		<% elsif variety <= 'R' %>
+			<% section = 3 %>
+		<% else %>
+			<% section = 4 %>
+		<% end %>
+		<% if counter != section %>
+			<% if counter != 0 %>
+				</div>
+			<% end %>
+			<div style="float:left;padding-right:60px;">
+			<% counter = section %>
+		<% end %>
+		<div style="font-size:20px;font-weight:bold;color:#247885;padding-top:20px;padding-bottom:12px;"><%= variety %></div>
+		<% for group in @subgroups[variety] %>
+			<%= link_to group.subgroupname , group %><br/>
+		<% end %>
 	<% end %>
 <% end %>
 
-<% end %>
+</div>
