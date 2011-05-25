@@ -60,7 +60,7 @@ class Product < ActiveRecord::Base
 	end
 	
 	def self.paginationCount
-		2
+		3
 	end
 	
 	def self.search(search)  

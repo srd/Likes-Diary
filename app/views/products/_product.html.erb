@@ -1,36 +1,45 @@
-<%= image_tag product.photo.url(:thumb) %><br/>
-<%= link_to product.productname , product%><br/>
-<!-- need to put up the like form here
--->
-
-<% if signedin? %>
-	<div>
-		<% if product.productliked?(current_user) %>
-			<%= form_for product.product_likes.find_by_user_id(current_user.id),:html => { :method => :delete } do |f| %>
-				<div class="actions"><%= f.submit "Unlike" %></div>
-			<% end %>
-		<% else %>
-			<% product_id = product.id %>
-			<%= form_for product.product_likes.build(:user_id => current_user.id) do |f| %>
-				<div><%= f.hidden_field :product_id %></div>
-				<div class="actions"><%= f.submit "Like" %></div>
+<div style="float:left;width:220px;padding:30px 5px 30px 30px;">
+	<div style="float:left;"><%= image_tag product.photo.url(:thumb) %></div>
+	<div style="float:left;width:140px;">
+		<div style="padding:20px 0px 0px 20px;font-size:18px;"><%= link_to product.productname , product%></div>
+		<!-- need to put up the like form here
+		-->
+	
+		<div style="clear:both"></div>
+		<% if signedin? %>
+			<div style="padding-top:2px;padding-left:20px;width:100%;">
+				<% if product.productliked?(current_user) %>
+					<%= form_for product.product_likes.find_by_user_id(current_user.id),:html => { :method => :delete } do |f| %>
+						<div class="actions" style="float:left;"><%= f.submit "Unlike" %></div>
+					<% end %>
+				<% else %>
+					<% product_id = product.id %>
+					<%= form_for product.product_likes.build(:user_id => current_user.id) do |f| %>
+						<div><%= f.hidden_field :product_id %></div>
+						<div class="actions" style="float:left;width:40px;"><%= f.submit "Like" %></div>
+					<% end %>
+				<% end %>
+				<div style="float:left;padding-top:6px;padding-left:10px;"><%= product.users.count %> likes</div>
+			</div>
+		<% end %>
+	</div>
+	<div style="clear:both;"></div>
+	<div style="padding-top:20px;">
+		<% if product.subgroups.count !=0 %>
+			<% @subs = product.subgroups %>
+			<% for @sub in @subs %>
+				<div style="clear:both"></div>
+				<div style="font-size:15px;float:left;"><%= @sub.category.categoryname %>:</div>
+				<div style="font-size:15px;float:left;"><%= link_to @sub.subgroupname, @sub %></div>
 			<% end %>
 		<% end %>
 	</div>
-<% end %>
-
-<% if product.subgroups.count !=0 %>
-	<% @subs = product.subgroups %>
-	<% for @sub in @subs %>
-		<%= @sub.category.categoryname %>
-		<%= link_to @sub.subgroupname, @sub %><br/>
+	<div style="clear:both"></div>
+	<br/>
+	<% if isadmin? %>
+		<%= link_to "Edit", edit_product_path(product) %>
+		<%= link_to 'Show', product %>
+		<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
 	<% end %>
-<% end %>
-<%= product.users.count %> likes
-<br/>
-<% if isadmin? %>
-<%= link_to "Edit", edit_product_path(product) %>
-<%= link_to 'Show', product %>
-<%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
-<% end %>
-<br/>
+	<br/>
+</div>

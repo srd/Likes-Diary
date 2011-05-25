@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-	layout 'likesdiary'
+	layout 'profile'
 	before_filter :is_admin?, :except => [:show, :index, :users, :reviews]
   def new
 		@title = "Create a new Category"
