@@ -99,7 +99,7 @@
     width: 232px;
     height: 44px;
     text-align: center;
-    background: url("../images/leftfootertabs_selected.png") no-repeat;
+    background: url("../images/leftfootertabs_selected.png") no-repeat; 
     color: white;
 }
 
@@ -195,4 +195,15 @@
 #heading{
 	color:#247885;
 	font-size:14px;
+}
+#wrap2 a {
+	text-decoration:none;
+}
+
+#wrap2 a:hover {
+	text-decoration:underline;
+}
+
+#wrap2 a:active {
+	text-decoration:underline;
 }

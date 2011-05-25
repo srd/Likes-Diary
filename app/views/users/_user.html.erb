@@ -1,6 +1,4 @@
-<div style="float:left;width:100px;">
-
-	<%= image_tag user.photo.url(:thumb) %>
-	<%= link_to user.login, user %><br/>
-
+<div style="float:left;padding-right:80px;padding-left:80px;padding-top:20px;">
+	<div style=""><%= image_tag user.photo.url(:thumb) %></div>
+	<div style="padding-top:10px;text-align:center"><%= link_to user.login, user %></div>
 </div>
