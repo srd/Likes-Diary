@@ -66,6 +66,7 @@ class Product < ActiveRecord::Base
 	def self.search(search)  
 		if search  
 			where('productname LIKE ?',"%#{search}%")
+			#TODO sql injection possible???
 		else  
 			scoped
 		end  

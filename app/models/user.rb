@@ -78,4 +78,13 @@ class User < ActiveRecord::Base
 	def self.paginationCount
 		3
 	end
+	
+		def self.search(search)  
+		if search  
+			where('login LIKE ? OR email LIKE ? ',"%#{search}%","%#{search}%")
+			#TODO sql injection possible???
+		else  
+			scoped
+		end  
+	end  
 end
