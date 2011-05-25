@@ -6,8 +6,17 @@ move it to a partial and show in all
   <tr>
     <td class="main">
       <h1><%= @title %></h1>
+			<div style="float:right">
+			//Abhash move this link to top somewhere
+				<% if @flag==0 %>
+					<%= link_to "Followers", followers_user_path(@user) %>
+				<% else %>
+					<%= link_to "Following", following_user_path(@user) %>
+				<% end %>
+			</div>
 
       <% unless @users.empty? %>
+				<%= will_paginate @users %>
         <ul class="users">
           <%= render @users %>
         </ul>

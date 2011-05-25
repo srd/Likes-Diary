@@ -1,3 +1,4 @@
+<%= image_tag product.photo.url(:thumb) %>
 <%= link_to product.productname , product%>
 <% if isadmin? %>
 <%= link_to "Edit", edit_product_path(product) %>
