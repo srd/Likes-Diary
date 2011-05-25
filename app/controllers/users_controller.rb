@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	layout 'profile', :except => [:new]
-  before_filter :authenticate_user!, :only => [:edit, :update, :following, :followers]
+  before_filter :authenticate_user!, :only => [:edit, :update, :following, :followers, :newsfeed]
   def new
     @title = "Sign up"
     @user = User.new
@@ -64,6 +64,10 @@ class UsersController < ApplicationController
 		@title = @user.login
 		@activities = @user.activities
 		@activitieslength = @activities.length
+	end
+	
+	def newsfeed
+		@feeditems = Activity.newsFeed(current_user).paginate(:page => params[:page], :per_page => 20)
 	end
 
 end

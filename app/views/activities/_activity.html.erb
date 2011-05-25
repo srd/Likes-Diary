@@ -7,7 +7,7 @@
 	<% when "Relationship" %>
 		<%= image_tag activity.user.photo.url(:thumb) %>
 		<%= link_to "#{activity.user.login}", activity.user %> is now following
-		<%= link_to "#{activity.item.following_id.login}", activity.item.following %><br/>
+		<%= link_to "#{activity.item.followed.login}", activity.item.followed %><br/>
 		<%= time_ago_in_words(activity.created_at) %>&nbsp;ago<br/>
 	<% when "Productcomment" %>
 		<%= image_tag activity.user.photo.url(:thumb) %>

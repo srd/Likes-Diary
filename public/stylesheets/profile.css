@@ -207,3 +207,19 @@
 #wrap2 a:active {
 	text-decoration:underline;
 }
+
+form.rating_ballot1 input#rating_submit { display: none; }
+form.rating_ballot2 input#rating_submit { display: none; }
+form.rating_ballot3 input#rating_submit { display: none; }
+form.rating_ballot4 input#rating_submit { display: none; }
+form.rating_ballot5 input#rating_submit { display: none; }
+
+#commentfield{
+height:50px;
+resize:none;
+}
+
+#reviewfield{
+height:50px;
+resize:none;
+}

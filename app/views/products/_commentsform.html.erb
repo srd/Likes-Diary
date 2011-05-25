@@ -1,8 +1,11 @@
+<%= image_tag current_user.photo.url(:thumb) , :style => "float:left;padding-right:5px" %>
 <%= form_for([@product, @product.productcomments.build]) do |f| %>
-  <div class="field">
-    <%= f.text_area(:content, :size => "70x5")%>
+  <div style= "float:left">
+    <%= f.text_area(:content, :id => 'commentfield')%>
   </div>
-  <div class="actions">
+	<div style="clear:both"></div>
+  <div style="float:right;padding-top:15px;padding-right:15px;">
     <%= f.submit "Comment" %>
   </div>
+	<div style="clear:both"></div>
 <% end %>

@@ -10,6 +10,6 @@ class Relationship < ActiveRecord::Base
 	after_create :log_activity
 	
 	def log_activity
-		Activity.create!(:item => self, :user => self.user, :action => 'create');
+		Activity.create!(:item => self, :user => self.follower, :action => 'create');
 	end
 end

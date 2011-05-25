@@ -1,13 +1,14 @@
-	
 <% content_for(:scripts) do %>
     <%= javascript_include_tag 'rating_ballot' %>
 <% end %>
 <% @ratingballots = rating_ballots %>
 <% @currentratings = current_user_ratings %>
 
-<br/>Number of ballots <%= @ratingballots.count %><br/>
 <% index = 1 %>
 <% @ratingballots.each do |key, rating_ballot| %>
+	<% if index!=1 %>
+		<div style="padding-top:8px">
+	<% end %>
 	<%= form_for(rating_ballot , :html => { :class => "rating_ballot#{index}" }) do |f| %>
 			<%= f.label("value_1", content_tag(:span, '1'), {:class=>"rating", :id=>"1"}) %>
 			<%= radio_button_tag("rating[value]", 1, @currentratings[key] == 1, :class => 'rating_button') %>
@@ -23,6 +24,8 @@
 			<%= hidden_field_tag("ratingcategory_id", key) %>
 			<%= f.submit :Submit %>
 	<% end %>
+	<% if index !=1 %>
+		</div>
+	<% end %>
 	<% index = index +1 %>
-	<br/>
 <% end %>

@@ -20,6 +20,7 @@ Likesdiary::Application.routes.draw do
 		resources :reviews, :except => [:index, :show]
 		member do
 			get :users
+			get :productcomments
 			get :reviews
 		end
 	end
@@ -53,6 +54,7 @@ Likesdiary::Application.routes.draw do
   match 'logout' => 'user_sessions#destroy', :as => :logout
 	match 'cheapsdiary' => 'deals#currentdeal'
 	match 'search' => 'pages#search'
+	match 'newsfeed', :to => 'users#newsfeed'
 
   root :to => 'pages#home'
 
