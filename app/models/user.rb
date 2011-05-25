@@ -74,4 +74,8 @@ class User < ActiveRecord::Base
       end
     end
   end
+	
+	def self.paginationCount
+		3
+	end
 end

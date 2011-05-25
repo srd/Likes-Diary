@@ -58,4 +58,16 @@ class Product < ActiveRecord::Base
     @total = self.ratings.size
     @value.to_f / @total.to_f
 	end
+	
+	def self.paginationCount
+		2
+	end
+	
+	def self.search(search)  
+		if search  
+			where('productname LIKE ?',"%#{search}%")
+		else  
+			scoped
+		end  
+	end  
 end

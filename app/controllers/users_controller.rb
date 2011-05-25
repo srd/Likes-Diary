@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def index
     @title = "Home page"
-    @users = User.paginate(:page => params[:page])
+    @users = User.paginate(:page => params[:page], :per_page => User.paginationCount, :order => 'login ASC')
   end
 
   def show
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 	def following
     @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.following.paginate(:page => params[:page])
+    @users = @user.following.paginate(:page => params[:page], :per_page => User.paginationCount, :order => 'login ASC')
 		@flag = 0
     render 'show_follow'
   end
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
-    @users = @user.followers.paginate(:page => params[:page])
+    @users = @user.followers.paginate(:page => params[:page], :per_page => User.paginationCount, :order => 'login ASC')
 		@flag = 1
     render 'show_follow'
   end

@@ -10,6 +10,7 @@ gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'will_paginate'
 gem 'paperclip'
+gem 'jquery-rails'
 
 
 # Use unicorn as the web server

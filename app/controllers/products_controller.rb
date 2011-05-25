@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-		@products = Product.all
+		@products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => Product.paginationCount, :order => 'productname ASC')
   end
 
   def show

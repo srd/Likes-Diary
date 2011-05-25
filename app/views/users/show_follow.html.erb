@@ -16,6 +16,7 @@ move it to a partial and show in all
 			</div>
 
       <% unless @users.empty? %>
+				<%= will_paginate @users %>
         <ul class="users">
           <%= render @users %>
         </ul>
