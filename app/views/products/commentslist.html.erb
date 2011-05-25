@@ -1,0 +1,8 @@
+<div style="padding-top:30px">
+<h1><%= link_to @product.productname, @product %></h1>
+<h1><%= @title %></h1>
+<% unless @comments.empty? %>
+<%= render :partial => 'productcomments/productcomment', :collection => @comments %>
+<%= will_paginate @comments %>
+<% end %>
+</div>

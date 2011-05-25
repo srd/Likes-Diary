@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 	layout 'likesdiary'
-	before_filter :is_admin?, :except => [:show, :index]
+	before_filter :is_admin?, :except => [:show, :index, :users, :reviews]
   def new
 		@title = "Create a new Category"
 		@product = Product.new
@@ -15,8 +15,8 @@ class ProductsController < ApplicationController
 		@subgroups = @product.subgroups
 		@title = @product.productname
 		@likers = @product.users
-		@comments = @product.productcomments
-		@reviews = @product.reviews
+		@comments = @product.productcomments.limit(3)
+		@reviews = @product.reviews.limit(1)
   end
 
   def edit
@@ -48,6 +48,28 @@ class ProductsController < ApplicationController
 		@product.destroy
 		flash[:success] = 'Product deleted'
 		redirect_to(subgroups_path)
+	end
+	
+	def users
+		@title = "Product Likes"
+		@product = Product.find(params[:id])
+    @users = @product.users.paginate(:page => params[:page], :per_page => Product.paginationCount, :order => 'login ASC')
+		
+		render 'likers'
+	end
+	
+	def reviews
+		@title = "Product Reviews"
+		@product = Product.find(params[:id])
+		@reviews = @product.reviews.paginate(:page => params[:page], :per_page => 5)		
+		render 'reviewslist'
+	end
+	
+	def productcomments
+		@title = "Product Comments"
+		@product = Product.find(params[:id])
+		@comments = @product.productcomments.paginate(:page => params[:page], :per_page => 30)		
+		render 'commentslist'
 	end
 	
 end

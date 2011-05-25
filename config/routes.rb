@@ -16,10 +16,15 @@ Likesdiary::Application.routes.draw do
 	resources :ratingcategories
 	resources :products do
 		resources :associations
-		resources :productcomments
-		resources :reviews
+		resources :productcomments, :except => [:index, :show]
+		resources :reviews, :except => [:index, :show]
+		member do
+			get :users
+			get :reviews
+		end
 	end
 
+#get rid of except show above
 	resources :users do
 		member do
 			get :following, :followers

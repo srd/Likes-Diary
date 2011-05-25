@@ -1,1 +1,22 @@
-<%= activity.created_at %>
+<% case activity.item_type %>
+	<% when "ProductLike" %>
+		<%= image_tag activity.user.photo.url(:thumb) %>
+		<%= link_to "#{activity.user.login}", activity.user %> likes the product
+		<%= link_to "#{activity.item.product.productname}", activity.item.product %><br/>
+		<%= time_ago_in_words(activity.created_at) %>&nbsp;ago<br/>
+	<% when "Relationship" %>
+		<%= image_tag activity.user.photo.url(:thumb) %>
+		<%= link_to "#{activity.user.login}", activity.user %> is now following
+		<%= link_to "#{activity.item.following_id.login}", activity.item.following %><br/>
+		<%= time_ago_in_words(activity.created_at) %>&nbsp;ago<br/>
+	<% when "Productcomment" %>
+		<%= image_tag activity.user.photo.url(:thumb) %>
+		<%= link_to "#{activity.user.login}", activity.user %> commented on the product 
+		<%= link_to "#{activity.item.product.productname}", activity.item.product %><br/>
+		<%= time_ago_in_words(activity.created_at) %>&nbsp;ago<br/>
+	<% when "Review" %>
+		<%= image_tag activity.user.photo.url(:thumb) %>
+		<%= link_to "#{activity.user.login}", activity.user %> added a review to the product
+		<%= link_to "#{activity.item.product.productname}", activity.item.product %><br/>
+		<%= time_ago_in_words(activity.created_at) %>&nbsp;ago<br/>
+<% end %>

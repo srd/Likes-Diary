@@ -2,9 +2,9 @@
 	<div class="gradient" id="welcometopbar"></div>
 	<div id="top_container">
 		<div id="welcomelogo">
-			<div id="logo"><a href="/"><img src="/images/welcome_logo.png"></a></div>
-			<div id="searchform">
-				
+			<div id="logo" style="width:140px"><a href="/"><img src="/images/welcome_logo.png"></a></div>
+			<div id="searchform" style="float:left;padding-top:20px;padding-left:100px;">
+				<%= render 'pages/searchform' %>
 			</div>
 			<div id="signout">
 				<%= link_to "Sign Out", logout_path %>

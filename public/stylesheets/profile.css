@@ -31,7 +31,6 @@
 }
 
 #profile_img {
-	width:112px;
 	max-height:112px;
 	padding:4px;
 }
@@ -190,4 +189,10 @@
 .dbitem:hover {
 	background-color:#4488c2;
 	color:white;
+}
+
+
+#heading{
+	color:#247885;
+	font-size:14px;
 }

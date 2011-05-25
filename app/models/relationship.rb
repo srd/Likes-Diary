@@ -7,4 +7,9 @@ class Relationship < ActiveRecord::Base
 	validates :follower_id, :presence => true
 	validates :followed_id, :presence => true
 
+	after_create :log_activity
+	
+	def log_activity
+		Activity.create!(:item => self, :user => self.user, :action => 'create');
+	end
 end

@@ -1,17 +1,14 @@
-Commenter:
+<%= image_tag review.user.photo.url(:thumb) %>
 <%= review.user.login %>
 <br/>
-Comment:
+Review:
 <%= review.content %>
 <br/>
 <div>
 Posted <%= time_ago_in_words(review.created_at) %> ago.
 <br/>
 <% if correct_user?(review.user) %>
-<%= link_to 'Delete', [review.product, review],
-               :confirm => 'Are you sure?',
-               :method => :delete %>
+<!-- <%= link_to 'X', [review.product, review],  :confirm => 'Are you sure?', :method => :delete %> -->
 <% end %>
-Put an X sign later rather than the message
 <br/><br/>
 

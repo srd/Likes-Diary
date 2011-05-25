@@ -113,3 +113,14 @@ body{
 	text-decoration:none;
 	color:white;
 }
+
+#searchfield{
+	width:250px;
+	font-size:14px;
+	padding:2px;
+}
+
+#searchbutton{
+	width:70px;
+	height:30px;
+}

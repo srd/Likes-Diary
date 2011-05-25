@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110524131014) do
+ActiveRecord::Schema.define(:version => 20110525102419) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
     t.integer  "item_id"
-    t.integer  "item_type"
+    t.string   "item_type"
     t.string   "action"
     t.datetime "created_at"
     t.datetime "updated_at"
