@@ -21,5 +21,12 @@ class PagesController < ApplicationController
 		@title = "Access restricted"
 		#TODO *check* directly redirect to root path
 	end
+	
+	def search
+		@searchvalue = params[:search]
+		@users = User.commonsearch(params[:search])
+		@products = Product.commonsearch(params[:search])
+		render :layout => 'profile'
+	end
 
 end

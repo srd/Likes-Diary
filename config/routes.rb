@@ -47,6 +47,7 @@ Likesdiary::Application.routes.draw do
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
 	match 'cheapsdiary' => 'deals#currentdeal'
+	match 'search' => 'pages#search'
 
   root :to => 'pages#home'
 

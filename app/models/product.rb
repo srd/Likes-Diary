@@ -71,4 +71,13 @@ class Product < ActiveRecord::Base
 			scoped
 		end  
 	end  
+	
+	def self.commonsearch(search)  
+		if search  
+			where('productname LIKE ?',"%#{search}%").limit(paginationCount)
+			#TODO sql injection possible???
+		else
+			limit(self.paginationCount)
+		end
+	end
 end

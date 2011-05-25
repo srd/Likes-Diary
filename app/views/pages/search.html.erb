@@ -1,0 +1,11 @@
+<%= render 'searchform' %>
+<h2>Users</h2>
+<br/><br/>
+<%= render @users %>
+<br/>
+<%= link_to "More users...", '/users?utf8=?&search=#{@searchvalue}' %>
+<br/>
+<h2>Products</h2>
+<%= render @products %>
+
+<%= link_to "More products", '/products?utf8=?&search=#{@searchvalue}' %>
