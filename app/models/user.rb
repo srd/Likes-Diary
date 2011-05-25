@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
   end
 	
 	def self.paginationCount
-		3
+		10
 	end
 	
 	def self.search(search)  

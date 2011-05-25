@@ -100,7 +100,7 @@
     width: 232px;
     height: 44px;
     text-align: center;
-    background: url("../images/leftfootertabs_selected.png") no-repeat;
+    background: url("../images/leftfootertabs_selected.png") no-repeat; 
     color: white;
 }
 
@@ -190,4 +190,16 @@
 .dbitem:hover {
 	background-color:#4488c2;
 	color:white;
+}
+
+#wrap2 a {
+	text-decoration:none;
+}
+
+#wrap2 a:hover {
+	text-decoration:underline;
+}
+
+#wrap2 a:active {
+	text-decoration:underline;
 }

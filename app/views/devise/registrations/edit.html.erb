@@ -1,49 +1,48 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div style="text-decoration:bold;font-size:24px;padding:10px;">Edit <%= resource_name.to_s.humanize %></div>
+<div style="padding:10px;">
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:multipart => true, :method => :put }) do |f| %>
+  	<%= devise_error_messages! %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:multipart => true, :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></p>
-  <div>
-		<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
+  	<div>
+		<div style="width:150px;float:left;padding-top:5px;"><%= f.label :current_password %> </div>
+ 	 	<%= f.password_field :current_password %>
+	</div>
+	<i>(we need your current password to confirm your changes)</i>
+  	<div>
+		<div style="width:150px;float:left;padding-top:5px;"><%= f.label :password, f.object.new_record? ? nil : "Change password" %></div>
 		<%= f.password_field :password %>
 	</div>
 	<div>
-		<%= f.label :password_confirmation %>
+		<div style="width:150px;float:left;padding-top:5px;"><%= f.label :password_confirmation %></div>
 		<%= f.password_field :password_confirmation %>
 	</div>
 	<div>
-		<%= f.label :city_id %>
+		<div style="width:150px;float:left;padding-top:5px;"><%= f.label :city_id %></div>
 		<%= f.collection_select(:city_id, City.all, :id, :cityname) %>
 	</div>
 	<div>
-	<%= f.label :sex %>
+	<div style="width:150px;float:left;padding-top:5px;"><%= f.label :sex %></div>
   <%= f.select( :sex, [["Male", "Male"], ["Female", "Female"]]) %>
 </div>
-<br/>
 <div>
-	<%= f.label :birthday %>
+	<div style="width:150px;float:left;padding-top:5px;"><%= f.label :birthday %></div>
 	<%= f.date_select( :birthday,:date_separator => "-" , :start_year => 1960 ) %>
 </div>
-<br/>
 <div>
-	<%= f.label :profession %>
+	<div style="width:150px;float:left;padding-top:5px;"><%= f.label :profession %></div>
 	<%= f.text_field :profession %>
 </div>
-<br/>
 <div>
-	<%= f.label :aboutme %>
-	<%= f.text_area :aboutme %>
+	<div style="width:150px;float:left;padding-top:5px;"><%= f.label :aboutme %></div>
+	<%= f.text_area :aboutme, :style => 'height:100px;' %>
 </div>
 <div>
+	<div style="width:150px;float:left;padding-top:5px;">Upload your photo</div>
 	<%= f.file_field :photo %>
-</div>
-  <%= f.submit "Update" %>
+</div> 
+	<div style="width:150px;padding-left:150px;padding-top:5px;"><%= f.submit "Update" %></div>
 <% end %>
-
-<h3>Cancel my account</h3>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
 
-<%= link_to "Back", :back %>
+</div>

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def index
     @title = "Home page"
-		@users = User.search(params[:search]).paginate(:page => params[:page], :per_page => Product.paginationCount, :order => 'login ASC')
+	@users = User.search(params[:search]).paginate(:page => params[:page], :per_page => User.paginationCount, :order => 'login ASC')
   end
 
   def show
