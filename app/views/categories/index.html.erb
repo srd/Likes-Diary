@@ -3,6 +3,6 @@ Welcome to Likes Diary
 
 <%= render @categories %>
 <br/><br/>
-<% if is_admin? %>
+<% if isadmin? %>
 <%= link_to "New Category", new_category_path %>
 <% end %>

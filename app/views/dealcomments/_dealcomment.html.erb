@@ -7,10 +7,11 @@ Comment:
 <div>
 Posted <%= time_ago_in_words(dealcomment.created_at) %> ago.
 <br/>
-<% if correct_user?(dealcomment.user) %>
-<%= link_to 'Delete', [dealcomment.deal, dealcomment],
+<% if correctuser?(dealcomment.user) %>
+// TODO there seems to be some error in correct_user - check that later
+<!-- <%= link_to 'Delete', [dealcomment.deal, dealcomment],
                :confirm => 'Are you sure?',
-               :method => :delete %>
+               :method => :delete %> -->
 <% end %>
 <br/>
 Put an X sign later rather than the message
