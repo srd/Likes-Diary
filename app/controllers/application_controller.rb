@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user_session, :current_user, :correct_user, :is_admin?, :signed_in?, :isadmin?, :signedin?, :correct_user?
+  helper_method :current_user_session, :current_user, :correct_user, :is_admin?, :signed_in?, :isadmin?, :signedin?, :correct_user?, :correctuser?
 	
 	layout :layout_by_resource
 
@@ -45,6 +45,10 @@ class ApplicationController < ActionController::Base
     end
 		
 		def correct_user?(user)
+			user == current_user
+		end
+		
+		def correctuser?(user)
 			user == current_user
 		end
 		
