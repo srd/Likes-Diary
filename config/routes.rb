@@ -46,16 +46,18 @@ Likesdiary::Application.routes.draw do
   get "user_sessions/new"
 
   get "users/new"
-
+  
+  match '/verify_user', :to => 'pages#verify_user'
+  match '/logUser' , :to => 'pages#logUser'
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
-  match 'signup', :to => 'users#new'
+  match 'signup', :to => 'users#new'  
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
 	match 'cheapsdiary' => 'deals#currentdeal'
 	match 'search' => 'pages#search'
-	match 'newsfeed', :to => 'users#newsfeed'
-
+	match 'newsfeed', :to => 'users#newsfeed'	
+	
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	layout 'profile', :except => [:new]
+  layout 'profile', :except => [:new]
   before_filter :authenticate_user!, :only => [:edit, :update, :following, :followers, :newsfeed]
   def new
     @title = "Sign up"
@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def create
+	puts 'Creating a user'
     @user = User.new(params[:user])
 		render 'Hello'
     if @user.save

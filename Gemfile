@@ -11,8 +11,9 @@ gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'jquery-rails'
-
-
+gem 'builder'
+gem 'facebooker2'
+gem 'mogli'
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -1,29 +1,64 @@
+<%= javascript_include_tag "sign_user" %>
 <% if !current_user %>	
-	<div class="loginform">
-		<div class="signin">
-			Sign in
-		</div>
-		<!-- <div>
-		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-		</div> -->
-		<%= form_for("user", :as => 'user', :url => user_session_path) do |f| %>
-			<div class ="partform">
-				<div><%= f.label :email %></div>
-				<div><%= f.text_field :email, :tabindex => '1' %></div>
-				<div style="margin:0px;">
-					<%= f.label :remember_me, :id => 'remlabel' %>
-					<%= f.check_box :remember_me, :tab_index => '3' %>
+	<div class="loginform">		
+		<div>
+			<%= form_for("user", :as => 'user', :url => user_session_path) do |f| %>
+			<% end %>
+			<%= fb_connect_async_js %>			
+			<% if current_facebook_user %>									
+				<div class="partform">
+					<div> <label>Email</label></div>
+					<% if @usr %>
+						<%= text_field_tag :user_email,@usr.email,:size=>30 %>
+						<%= hidden_field :usr , :first_name %>
+						<%= hidden_field :usr , :last_name %>
+						<%= hidden_field   :usr,:gender %>
+						<%= hidden_field  :usr,:birthday %>
+					<% else %>							
+						<div> <input id="user_email" name="user[email]" size="30" tabindex="1" type="text" /> </div>																	
+					<% end %>						
 				</div>
-			</div>
-			<div class="partform">
-				<div><%= f.label :password %></div>
-				<div><%= f.password_field :password, :tabindex => '2' %></div>
-				<div><%= link_to "Forgot your password?", new_password_path('user') %></div>
-			</div>
-			<div class="partform">
-				<%= f.submit 'Sign in' , :tabindex => '4' %>
-			</div>
-		<% end %>		
+				<br/>					
+				<div> <b>Likes-Diary password</b> </div>
+				<br/>
+				<div class="partform">
+					<div><label for="user_password">Password</label></div>
+					<div><input id="user_password" name="user[password]" size="30" tabindex="2" type="password" /></div>												
+				</div>
+				<br/>
+				<div id="confirm_pass" class="partform" style="display:none">
+					<div><label for="confirm_password">Confirm Password</label></div>
+					<div><input id="confirm_password"  size="30" tabindex="2" type="password"/></div>
+				</div>
+				<br/>					
+				<div class="partform">
+					<input id="sign_button" type="submit" value="Sign In" tabindex="4" onclick="getPushUser();"/>					
+				</div>
+				<br/>
+				<% javascript_tag do %>
+							verify_email();
+				<% end %>
+			<% else %>				
+				<%= fb_login_and_redirect('http://localhost:3000/', {:text => "Login through Facebook" , :perms => 'email,user_birthday'}) %>
+				<br/>
+				<div class="partform">
+					<div> <label>Email</label></div>
+					<div> <input id="user_email" name="user[email]" size="30" tabindex="1" type="text" /> </div>																	
+				</div>
+				<br/>					
+				<div> <b>Likes-Diary password</b> </div>
+				<br/>
+				<div class="partform">
+					<div><label for="user_password">Password</label></div>
+					<div><input id="user_password" name="user[password]" size="30" tabindex="2" type="password" /></div>												
+				</div>
+				<br/>									
+				<div class="partform">
+					<input id="sign_button" type="submit" value="Sign In" tabindex="4" onclick="getPushUser();"/>
+				</div>
+				<br/>
+			<% end %>			
+		</div>	
 	</div>
 	<div style="clear:both;">
 	<hr />
@@ -32,16 +67,3 @@
 	<%= link_to "Account", users_path %>
 	<%= link_to "Logout", logout_path %>
 <% end %>
-
-<div class="loginform">
-	<div class="signin">
-		Sign Up
-	</div>
-	<div id="signupform">
-		<%= form_for @user, :url => users_path, :html => {:multipart => true} do |f| %>
-			<%= render 'shared/error_messages', :object => f.object %>
-			<%= render :partial => 'users/form', :object => f %>
-			<%= f.submit "Sign Up" %>
-		<% end %>
-	</div>
-</div>
