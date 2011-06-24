@@ -4,11 +4,11 @@ class PagesController < ApplicationController
   
   def home		
 	@user = User.new
-	@title = "Home"
-	if current_facebook_user		
+	@title = "Home"	
+	if current_facebook_user
 		begin
 			@usr = Mogli::User.find('me',current_facebook_client)
-		rescue
+		rescue			
 			puts "Error => #{$!}"
 		end		
 	end		
@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   def logUser
 	if current_user		
 		redirect_to newsfeed_path		
-	else		
+	else
 		redirect_to '/users/sign_in'
 	end
   end

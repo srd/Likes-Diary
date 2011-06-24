@@ -4,10 +4,11 @@
       <div style="float:left; font-size:20px;"><%= @title %></div>
 			<div style="float:left;padding-left:10px;font-size:20px;"> | 
 				<% if @flag==0 %>
-					<%= link_to "Followers", followers_user_path(@user) %>
-				<% else %>
-					<%= link_to "Following", following_user_path(@user) %>
-				<% end %>
+					<%= link_to "Followers", followers_user_path(@user) %> |
+				<% else %>				
+					<%= link_to "Following", following_user_path(@user) %> |
+				<% end %>				
+				<%= link_to "Requests ", requests_user_path(@user) %>			
 			</div>
 		<div style="clear:both;"></div>
       <% unless @users.empty? %>

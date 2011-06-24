@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525102419) do
+ActiveRecord::Schema.define(:version => 20110622234220) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -36,6 +36,43 @@ ActiveRecord::Schema.define(:version => 20110525102419) do
   add_index "associations", ["subgroup_id", "product_id"], :name => "index_associations_on_subgroup_id_and_product_id", :unique => true
   add_index "associations", ["subgroup_id"], :name => "index_associations_on_subgroup_id"
 
+  create_table "beverage_edits", :force => true do |t|
+    t.integer  "edit_id"
+    t.string   "alcohol_content"
+    t.string   "funfact"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beverage_edits", ["edit_id"], :name => "index_beverage_edits_on_edit_id", :unique => true
+
+  create_table "beverages", :force => true do |t|
+    t.integer  "p_id"
+    t.string   "company"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beverages", ["p_id"], :name => "index_beverages_on_p_id", :unique => true
+
+  create_table "book_edits", :force => true do |t|
+    t.integer  "edit_id"
+    t.string   "about_author"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "book_edits", ["edit_id"], :name => "index_book_edits_on_edit_id", :unique => true
+
+  create_table "books", :force => true do |t|
+    t.integer  "p_id"
+    t.string   "author"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "books", ["p_id"], :name => "index_books_on_p_id", :unique => true
+
   create_table "categories", :force => true do |t|
     t.string   "categoryname"
     t.integer  "maingroup_id"
@@ -50,6 +87,34 @@ ActiveRecord::Schema.define(:version => 20110525102419) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "u_id"
+    t.integer  "p_id"
+    t.string   "reply"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "compgame_edits", :force => true do |t|
+    t.integer  "edit_id"
+    t.integer  "stages"
+    t.string   "cheetsheet"
+    t.string   "version"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "compgame_edits", ["edit_id"], :name => "index_compgame_edits_on_edit_id", :unique => true
+
+  create_table "compgames", :force => true do |t|
+    t.integer  "p_id"
+    t.string   "company"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "compgames", ["p_id"], :name => "index_compgames_on_p_id", :unique => true
 
   create_table "deal_likes", :force => true do |t|
     t.integer  "user_id"
@@ -95,6 +160,39 @@ ActiveRecord::Schema.define(:version => 20110525102419) do
   end
 
   add_index "deals", ["city_id"], :name => "index_deals_on_city_id"
+
+  create_table "editinfos", :force => true do |t|
+    t.integer  "p_id"
+    t.integer  "u_id"
+    t.integer  "category"
+    t.string   "desc"
+    t.string   "review"
+    t.string   "ytube_link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "like"
+  end
+
+  add_index "editinfos", ["p_id", "u_id"], :name => "index_editinfos_on_p_id_and_u_id", :unique => true
+
+  create_table "followers", :force => true do |t|
+    t.integer  "followed"
+    t.integer  "following"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "perm"
+  end
+
+  add_index "followers", ["followed", "following"], :name => "index_followers_on_followed_and_following", :unique => true
+
+  create_table "likes_tables", :force => true do |t|
+    t.integer  "u_id"
+    t.integer  "p_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes_tables", ["u_id", "p_id"], :name => "index_likes_tables_on_u_id_and_p_id", :unique => true
 
   create_table "maingroups", :force => true do |t|
     t.string   "name"
@@ -152,6 +250,45 @@ ActiveRecord::Schema.define(:version => 20110525102419) do
     t.integer  "speciality2_file_size"
   end
 
+  create_table "mobile_edits", :force => true do |t|
+    t.integer  "edit_id"
+    t.string   "tech_sup"
+    t.string   "fav_apps"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mobile_edits", ["edit_id"], :name => "index_mobile_edits_on_edit_id", :unique => true
+
+  create_table "mobiles", :force => true do |t|
+    t.integer  "p_id"
+    t.string   "company"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mobiles", ["p_id"], :name => "index_mobiles_on_p_id", :unique => true
+
+  create_table "music_edits", :force => true do |t|
+    t.integer  "edit_id"
+    t.string   "awards"
+    t.string   "lyrics"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "music_edits", ["edit_id"], :name => "index_music_edits_on_edit_id", :unique => true
+
+  create_table "musics", :force => true do |t|
+    t.integer  "p_id"
+    t.string   "album"
+    t.string   "artist"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "musics", ["p_id"], :name => "index_musics_on_p_id", :unique => true
+
   create_table "product_likes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "product_id"
@@ -182,6 +319,9 @@ ActiveRecord::Schema.define(:version => 20110525102419) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
+    t.string   "tags"
+    t.integer  "category"
+    t.integer  "rating_id"
   end
 
   create_table "ratingcategories", :force => true do |t|
@@ -207,6 +347,15 @@ ActiveRecord::Schema.define(:version => 20110525102419) do
   add_index "ratings", ["user_id", "product_id", "ratingcategory_id"], :name => "index_ratings_on_user_id_and_product_id_and_ratingcategory_id", :unique => true
   add_index "ratings", ["user_id"], :name => "index_ratings_on_user_id"
 
+  create_table "ratingtables", :force => true do |t|
+    t.integer  "p_id"
+    t.string   "category"
+    t.integer  "netcount"
+    t.integer  "usercount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -217,6 +366,15 @@ ActiveRecord::Schema.define(:version => 20110525102419) do
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
+
+  create_table "replytocomments", :force => true do |t|
+    t.integer  "u_id"
+    t.integer  "p_id"
+    t.integer  "c_id"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reviews", :force => true do |t|
     t.integer  "user_id"
@@ -237,6 +395,20 @@ ActiveRecord::Schema.define(:version => 20110525102419) do
   end
 
   add_index "subgroups", ["category_id"], :name => "index_subgroups_on_category_id"
+
+  create_table "temp_followers", :force => true do |t|
+    t.integer  "followed"
+    t.integer  "following"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tempfollowers", :force => true do |t|
+    t.integer  "followed"
+    t.integer  "following"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                                   :null => false

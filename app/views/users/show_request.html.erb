@@ -1,0 +1,21 @@
+<div style="float:left;padding-left:10px;font-size:20px;">		
+		<%= link_to "Followers", followers_user_path(@user) %> |				
+		<%= link_to "Following", following_user_path(@user) %> |
+		Requests	
+</div>
+<br/>
+<%= javascript_include_tag "requestAction" %>
+<div style='position:relative;top:60px;left:50px;' id="parent">		
+	<% @users.each do |user| %>		
+		<div id=<%="'#{user.id}'"%>  style='position:relative;width:500px;height:100px;'>						
+			<hr style='position:absolute;top:-10px;' size=2 width=500></hr>
+			<div style='position:absolute;top:0px;left:130px;'><font size=4><%= link_to user.login,"http://localhost:3000/users/#{user.id}" %> wants to follow you.</font></div>
+			<a href=<%="'javascript:requestAct(4,#{user.id})'"%>><div style='position:absolute;top:0px;left:470px;width:15px;height:15px;background-color:blue;' align="center">X</div></a>			
+			<div style='position:absolute;top:0px;'><%= image_tag user.photo.url(:small), :width => 100 , :height => 100 %>	</div>		
+			<a href=<%="'javascript:requestAct(2,#{user.id})'"%>><div style="position:absolute;top:0px;left:50px;width:50px;height:20px;background-color:blue;" align="center"><font color='red' size=2px>Like</font></div></a>
+			<a href=<%="'javascript:requestAct(1,#{user.id})'"%>><div style='position:absolute;top:70px;left:150px;width:100px;height:15px;background-color:blue;' align="center"><font color="red">Allow Interaction</font></div></a>
+			<a href=<%="'javascript:requestAct(3,#{user.id})'"%>><div style='position:absolute;top:70px;left:350px;width:100px;height:15px;background-color:blue;' align="center"><font color="red">Not now</font></div></a>
+		</div>			
+		<br/>		
+	<% end %>	
+</div>

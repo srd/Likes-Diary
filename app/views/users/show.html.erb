@@ -25,7 +25,12 @@
 	</div>
 	<div style="float:left;padding-left:30px;">
 		<%= link_to "Following	 #{@user.following.count}", following_user_path(@user) %><br/>
-		<%= link_to "Followers   #{@user.followers.count}", followers_user_path(@user) %>
+		<%= link_to "Followers   #{@user.followers.count}", followers_user_path(@user) %><br />
+		<% if @users != nil %>
+			<%= link_to "Requests #{@users.count}", requests_user_path(@user) %>
+		<% else %>
+			<%= link_to "Requests", requests_user_path(@user) %>
+		<% end %>
 	</div>
 	<div style="clear:both;"></div>
 </div>

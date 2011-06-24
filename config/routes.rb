@@ -7,7 +7,13 @@ Likesdiary::Application.routes.draw do
 		get "/register" => "devise/registrations#new"
 	end
 
-  resources :deals do
+	match 'products/recentupdate' , :to => 'products#recentupdate'
+	match 'products/friendsupdate' , :to => 'products#friendsupdate'
+	match 'products/toplist' , :to => 'products#toplist'
+	match 'products/commentlist' , :to => 'products#commentlist'
+	match 'users/likeit' , :to=>'products#likeit'
+	
+	resources :deals do
 		resources :dealcomments
 	end
 	resources :maingroups
@@ -16,19 +22,23 @@ Likesdiary::Application.routes.draw do
 	resources :ratingcategories
 	resources :products do
 		resources :associations
+		resources :recentupdate
 		resources :productcomments, :except => [:index, :show]
 		resources :reviews, :except => [:index, :show]
 		member do
 			get :users
 			get :productcomments
 			get :reviews
+			get :recentupdate			
 		end
-	end
+	end	
 
+	match 'users/followedBy' , :to=> 'users#followedBy'
+	
 #get rid of except show above
 	resources :users do
 		member do
-			get :following, :followers
+			get :following, :followers, :requests ,:requestAct
 		end
 	end
   resources :user_sessions
@@ -47,18 +57,18 @@ Likesdiary::Application.routes.draw do
 
   get "users/new"
   
-  match '/verify_user', :to => 'pages#verify_user'
-  match '/logUser' , :to => 'pages#logUser'
-  match '/contact', :to => 'pages#contact'
-  match '/about', :to => 'pages#about'
-  match 'signup', :to => 'users#new'  
-  match 'login' => 'user_sessions#new', :as => :login
-  match 'logout' => 'user_sessions#destroy', :as => :logout
+	match '/verify_user', :to => 'pages#verify_user'
+	match '/logUser' , :to => 'pages#logUser'
+	match '/contact', :to => 'pages#contact'
+	match '/about', :to => 'pages#about'
+	match 'signup', :to => 'users#new'  
+	match 'login' => 'user_sessions#new', :as => :login
+	match 'logout' => 'user_sessions#destroy', :as => :logout
 	match 'cheapsdiary' => 'deals#currentdeal'
 	match 'search' => 'pages#search'
 	match 'newsfeed', :to => 'users#newsfeed'	
 	
-  root :to => 'pages#home'
+	root :to => 'pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
