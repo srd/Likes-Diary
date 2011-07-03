@@ -11,7 +11,15 @@ Likesdiary::Application.routes.draw do
 	match 'products/friendsupdate' , :to => 'products#friendsupdate'
 	match 'products/toplist' , :to => 'products#toplist'
 	match 'products/commentlist' , :to => 'products#commentlist'
-	match 'users/likeit' , :to=>'products#likeit'
+	match 'products/editSection' , :to => 'products#editSection'
+	match 'products/editbyuser' , :to => 'products#editbyuser'
+	match 'products/commentbyuser' , :to => 'products#commentbyuser'
+	match 'products/replytocomment' , :to => 'products#replytocomment'
+	match 'products/removereply' , :to => 'products#removereply'
+	match 'products/removecomment' , :to => 'products#removecomment'
+	match 'products/likeit' , :to=>'products#likeit'
+	match 'products/satisfyby' , :to => 'products#satisfyby'
+	match 'products/suggestion' ,:to => 'products#suggestion'
 	
 	resources :deals do
 		resources :dealcomments
@@ -24,12 +32,12 @@ Likesdiary::Application.routes.draw do
 		resources :associations
 		resources :recentupdate
 		resources :productcomments, :except => [:index, :show]
-		resources :reviews, :except => [:index, :show]
+		resources :reviews, :except => [:index, :show]		
 		member do
 			get :users
 			get :productcomments
 			get :reviews
-			get :recentupdate			
+			get :recentupdate				
 		end
 	end	
 

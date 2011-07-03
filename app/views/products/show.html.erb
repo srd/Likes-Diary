@@ -1,63 +1,131 @@
-<% if isadmin? %>	
-	<%= link_to 'Edit', edit_product_path %>
-<% end %>
-<div style="padding:20px;float:left;">
-	<%= image_tag @product.photo.url(:small) %>
-</div>
-<div style="padding:20px;">
-	<div style="font-size:20px;font-weight:bold;color:#247885"><%= @product.productname %></div>
-	<%= render 'like_form' if signedin? %>
-	<div style="float:left;padding-left:10px;"><%= link_to "#{@product.users.count} likes", users_product_path%></div>
-	
-		<% if @product.subgroups.count!=0 %>
-			<div style="float:left;padding-left:50px;">
-				<% @ratingnames = @product.subgroups[0].category.maingroup.ratingcategories %>
-				<%= render :partial => '/ratingcategories/ratingcategory', 
-					:collection => @ratingnames %>
+<%= stylesheet_link_tag "product_page" %>
+<%= javascript_include_tag "populateDivision" %>
+<input type='hidden' id="product_id"  value=<%= @product.id %>></input>
+<div style='position:relative;background-color:#dae9ea;'>
+	<div  id="product_info">
+		<img id="product_img"  src=<%="http://localhost:3000#{@product.photo.url(:small)}"%> ></img>
+		<a href='javascript:likeit()'><div id="like_btn" onclick="likeit();" align="center" ><font size=4 color="red">Like</font></div></a>							
+		<div id="basic_info">	
+			<div id="rating">							
+				<label style="font-size:20px;color:blue;margin-left:20px;"><b>Rating:-</b></label>
+				<div id="sliders">
+					<% @ratings.each do |r| %>
+					<br/>
+					<label style="font-size:15px;color:blue;margin-left:5px;"><b><%= r.category %> :-  <%= r.netcount/r.usercount %></b></label>
+					<br/>
+					<% end %>
+				</div>
+				<br/>
+				<a href><div style="background-color:blue;width:60px;height:30px;position:absolute;left:120px;" onclick="alert('Rate');" align="center"><font size=4 color="red">Rate</font></div></a>
 			</div>
-			<div style="float:left;padding-left:15px">
-				<%= render 'products/rating' %>
-				<%= render 'ratingform' %>
-			</div>	
-		<% end %>
-	
+		</div>					
+		<div id="general_desc" style="top:250px;position:absolute;padding-left:10px;">
+			<HR NOSHADE style="color:blue;" width="500px"></HR>		
+			<label style='font-size:30px;color:blue;'><b><%= @product.productname %></b></label>
+			<br/>
+			<% if @product.category == 1 %>
+				<label style='font-size:20px;' info="xyz"><b><i><%= @book[0].author %></i></b></label>
+			<% elsif @product.category == 2 %>
+				<label style='font-size:20px;' info="xyz"><b><i><%= @mobile[0].company %></i></b></label>
+			<% elsif @product.category == 3 %>
+				<label style='font-size:20px;' info="xyz"><b><i><%= @music[0].album %></i></b></label>
+					<label style='font-size:20px;' info="xyz"><b><i><%= @music[0].artist %></i></b></label>
+			<% elsif @product.category == 4 %>
+				<label style='font-size:20px;' info="xyz"><b><i><%= @compgame[0].company %></i></b></label>					
+			<% elsif @product.category == 5 %>
+				<label style='font-size:20px;' info="xyz"><b><i><%= @beverages[0].company %></i></b></label>
+			<% end %>		
+			<br/>
+			<label id="rating_slider" style="font-size:20px;color:blue">Slider goes here</label>
+			<br/>				
+			<label id="total_likes" style="font-size:15px;color:blue;">Users:(<%= @total %>/10) <u><%= @ratings[0].usercount %> votes</u></label>					
+			<div>				
+				<br/>
+				<text id="desc" style="font-size:15px;"><%= @product.details %></text>
+				<br/>				
+			</div>		
+		</div>
+	</div>
+	<div id="suggestion">		
+	</div>
+	<HR style='position:absolute;top:550px;left:0px;' size=2 width=500></HR>
+	<div id="Dynamic_part">		
+		<div id="Edit_By_user">			
+			<div id="Edit_part" style='padding-left:30px;'>								
+				<a href='#'><div style="background-color:blue;width:70px;height:20px;position:absolute;left:400px;" align="center"><font size=3 color="red" onclick="satisfiedBy()">Satisfied</font></div></a>
+				<label style="color:blue;"><font size=3><b>Description :</b></font></label>
+				<div id="field1"></div>
+				<br/>
+				<label style="color:blue;"><font size=3><b>Review :</b></font></label>
+				<div id="field2"></div>
+				<br/>
+				<% if @product.category == 1 %>
+					<label style="color:blue;"><font size=3><b>About author :</b></font></label>
+					<div id="field3"></div>
+					<br/>
+				<% elsif @product.category == 2 %>
+					<label style="color:blue;"><font size=3><b>Tech Supports :</b></font></label>
+					<div id="field3"></div>
+					<br/>
+					<label style="color:blue;"><font size=3><b>Favourite Apps :</b></font></label>
+					<div id="field4"></div>
+					<br/>
+				<% elsif @product.category == 3 %>
+					<label style="color:blue;"><font size=3><b>Awards :</b></font></label>
+					<div id="field3"></div>
+					<br/>
+					<label style="color:blue;"><font size=3><b>Lyrics :</b></font></label>
+					<div id="field4"></div>
+					<br/>
+				<% elsif @product.category == 3 %>
+					<label style="color:blue;"><font size=3><b>Version :</b></font></label>
+					<div id="field3"></div>
+					<br/>
+					<label style="color:blue;"><font size=3><b>Stages :</b></font></label>
+					<div id="field4"></div>
+					<br/>					
+					<label style="color:blue;"><font size=3><b>Cheet sheet :</b></font></label>
+					<div id="field5"></div>
+					<br/>					
+				<% elsif @product.category == 4 %>
+					<label style="color:blue;"><font size=3><b>Alcohol Content :</b></font></label>
+					<div id="field3"></div>
+					<br/>
+					<label style="color:blue;"><font size=3><b>Fun Fact :</b></font></label>
+					<div id="field4"></div>
+					<br/>						
+				<% end %>
+			</div>
+			<a href=<%="javascript:MakeEditable(#{@product.category});"%> ><div style="background-color:blue;width:70px;height:20px;position:absolute;left:400px;" align="center"><font size=2 color="red" id="sbmt">Contribute</font></div></a>
+			<br/>
+			<br/>					
+			<HR width=500/>
+			<br/>
+		</div>
+		<div id="comments" style='padding-left:30px;'>
+			<h4 color="red"><%= @time.strftime("%d %B") %> | Comments </h4>
+			<textarea style='width:460px;height:40px;resize:none;' onkeypress="commentOn(event,this.value)"></textarea>
+			<br/>
+			<br/>
+			<div id="commentlist" style="position:relative;height:auto;">
+			</div>
+		</div>
+	</div>
+	<div id="updates">
+		<div id="recent_updates" style="position:relative;">				
+			<label style="padding-left:20px;"><font size=3 color="blue">Most Recent</font></label>
+			<hr style="position:absolute;top:10px;color:gray;width:300px;"/>
+		</div>				
+		<div id="friends_updates" style="position:relative;">
+			<label style="padding-left:20px;"><font size=3 color="blue">My Friends</font></label>
+			<hr style="position:absolute;top:10px;color:gray;width:300px;"/>
+		</div>				
+		<div id="toplist" style="position:relative;">
+			<label style="padding-left:20px;"><font size=3 color="blue">All Web</font></label>
+			<hr style="position:absolute;top:10px;color:gray;width:300px;"/>
+		</div>							
+	</div>
 </div>
-	<div style="clear:both"/>
-	<div style="padding-left:20px;"><%= @product.details %></div>
-
-<div style="clear:both"></div>
-
-<div style="float:left;padding-left:15px">
-<% if signedin? %>
-	<h2>Comments</h2>
-	<div style="padding-bottom:10px;width:410px"><%= render 'products/commentsform' if signedin? %></div>
-
-	<%= render :partial => "productcomments/productcomment",
-           :collection => @comments %>
-
-<% end %>
-<%= link_to "More comments", productcomments_product_path %>
-</div>
-
-<div style="float:left;padding-left:15px">
-<% if signedin? %>
-	<h2>Reviews</h2>
-	<div style="padding-bottom:10px;width:410px"><%= render 'products/reviewsform' if signedin? %></div>
-	<%= render :partial => "reviews/review",
-           :collection => @reviews %>
-<% end %>
-<%= link_to "More reviews", reviews_product_path %>
-</div>
-<div style="clear:both"></div>
-<br/><br/>
-
-
-
-<br/><br/>
-<% if isadmin? %>
-<%= render @subgroups %>
-<% end %>
-
-<% if isadmin? %>
-<%= render 'addsubgroup_form' %>
+<% javascript_tag do %>
+	getProductId();
 <% end %>

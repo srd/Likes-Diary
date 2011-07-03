@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622234220) do
+ActiveRecord::Schema.define(:version => 20110703051104) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -160,6 +160,13 @@ ActiveRecord::Schema.define(:version => 20110622234220) do
   end
 
   add_index "deals", ["city_id"], :name => "index_deals_on_city_id"
+
+  create_table "edit_likes", :force => true do |t|
+    t.integer  "edit_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "editinfos", :force => true do |t|
     t.integer  "p_id"
