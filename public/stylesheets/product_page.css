@@ -1,0 +1,68 @@
+#product_info {	
+	width:500px;			
+	
+	position:relative;	
+}
+
+#suggestion {		
+	height:530px;
+	width:300px;	
+	
+	position:absolute;
+	left:560px;	
+	top:20px;
+}
+
+#Dynamic_part {		
+	position:absolute;	
+	top:580px;
+}
+
+#updates {
+	position:absolute;
+	top:560px;
+	left:560px;
+}
+
+#product_img {
+	height:220px;
+	width:150px;
+	
+	position:absolute;
+	left:10px;
+	top:10px;
+}
+
+#compare_price {
+	height:250px;
+	width:150px;
+	
+	border:2px solid gray;
+	
+	position:absolute;
+	left:10px;
+	top:270px;
+}
+#like_btn {
+	height:30px;
+	width:60px;
+	
+	background-color:blue;
+	
+	position:absolute;		
+	left:100px;
+	top:10px;
+}
+
+#basic_info {
+	position:absolute;
+	left:200px;
+	top:10px;
+}
+
+#rating {
+	height:220px;
+	width:300px;
+	
+	border:1px solid gray;	
+}
