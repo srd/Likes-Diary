@@ -11,6 +11,7 @@ Likesdiary::Application.routes.draw do
 	match 'products/friendsupdate' , :to => 'products#friendsupdate'
 	match 'products/toplist' , :to => 'products#toplist'
 	match 'products/commentlist' , :to => 'products#commentlist'
+	match 'products/add_image' , :to => 'products#add_image'
 	match 'users/likeit' , :to=>'products#likeit'
 	
 	resources :deals do

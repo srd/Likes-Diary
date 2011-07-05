@@ -13,7 +13,7 @@
 
 #leftcontent {
     width: 232px;
-    height: 400px;
+    height: auto;
     background-color:#fbfbfa;;
     border: 1px solid #CACACA;
     overflow: hidden;

@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'builder'
 gem 'facebooker2'
 gem 'mogli'
+gem 'rmagick'
 # Use unicorn as the web server
 # gem 'unicorn'
 

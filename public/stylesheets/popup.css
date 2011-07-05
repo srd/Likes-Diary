@@ -1,0 +1,137 @@
+.product_container h2 {
+	margin:0px;
+	overflow:hidden;
+	padding:0px 0px 0px 30px;
+	text-align: left;
+	background-color: transparent;
+	font-weight: bold;
+}
+
+.product_container h2 div {
+	padding-top:18px;
+	padding-bottom:14px;
+}
+
+.product_container h2 a{
+	float:right;
+	width: 55px;
+	height: 57px;
+	text-indent: -9999px;
+	border-left: 1px solid #E7E7E7;
+	background: url(/images/CloseIcon.gif);
+}
+
+.product_container{
+	position: fixed;
+	top: 10%;
+	left: 50%;
+	width: 550px;
+	z-index: 9998;
+		margin-left: -275px;	
+		height: auto; 
+	overflow: hidden; 
+	padding: 30px; 
+	background-color:#f1f8f9;
+
+}
+
+.product_container .content {
+	width: inherit; 
+	min-height: 300px; 
+	overflow: auto; 
+	background-color: transparent; 
+	margin: 10px 0 0 0; 
+	padding: 4px 10px 0px 10px; 
+	border: 2px solid #9DE6DB;
+}
+
+.content .upload input[type=text] {
+	margin: 0px 0px 10px 0px; 	
+	width:270px;
+	font-size:15px;
+	padding:2px;
+	width: 270px; 
+	float: right;
+	border: 1px solid #9DE6DB;
+	color: #777;
+}
+
+.popup_add_box table, tr, td{
+	width: 330px;
+	height: auto;
+	color: #000;
+	font-style: bold;
+	font-size: 15px;
+}
+
+.popup_add_box input, select{
+	width: 200px;
+	height: 30px;
+	border: 1px solid #9DE6DB;
+	color: #777;
+	font-size: 15px;
+}
+.popup_add_box textarea{
+	width: 200px;
+	max-height: 100px;
+	border: 1px solid #9DE6DB;
+	color: #777;
+	font-size: 15px;
+}
+/*
+#product_submit:hover{	
+	width: 70px;
+	height: 30px;
+	background: #337F93;
+    	color:#fff;
+	border: 0px;
+    	display: visible;
+	min-width: 44px;
+    	padding:3px;
+	float: right;
+	margin: 20px 0 0 0;
+}
+*/
+#product_submit{
+	width: 70px;
+	height: 30px;
+	float: left;
+	background: transparent;
+	border: 1px solid #247885;
+	color: #247885;
+	margin: 20px 0 0 0;
+}
+
+#pop_cancelbutton{
+	width: 70px;
+	height: 30px;
+	float: left;
+	background: transparent;
+	border: 0px;
+	color: #247885;
+	margin: 20px 0 0 0;
+}
+
+#pop_cancelbutton:hover{	
+	width: 70px;
+	height: 30px;
+	background: #337F93;
+    	color:#fff;
+	border: 0px;
+    	display: visible;
+	min-width: 44px;
+    	padding:3px;
+	float: right;
+	margin: 20px 0 0 0;
+}
+
+#link {
+	width: 270px; 
+	font-size: 16px; 
+	margin: 0px 0px 10px 0px; 
+	float: right; 
+	border: 1px solid #9DE6DB; 
+	color: #777;
+}
+
+

@@ -73,7 +73,7 @@ body{
 
 #leftcontent {
     width: 232px;
-    height: 400px;
+    height: 440px;
     background-color:#fbfbfa;;
     border: 1px solid #CACACA;
     overflow: hidden;
@@ -373,4 +373,32 @@ p {
 .likebox2:hover{
 	opacity: 1.0;
 	-webkit-box-shadow: 0 0 4px #000;
+}
+
+.box1{
+    position: relative;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+}
+
+#submitbutton{
+    background:#337F93;
+    color:#fff;
+    border: 0px;
+    display: visible;
+    height: 22px;
+    min-width: 44px;
+    padding:3px;
+}
+
+.pageOverlay {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    opacity: 0.80;
 }
