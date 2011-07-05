@@ -1,3 +1,5 @@
+require "open-uri"
+
 class Product < ActiveRecord::Base
 	has_many :associations, :dependent => :destroy
 	has_many :subgroups, :through => :associations
@@ -19,6 +21,10 @@ class Product < ActiveRecord::Base
     :styles => {
       :thumb=> "75x75#",
       :small  => "200x200>" }, :default_url => '/images/missing_:style.jpg'
+
+	def picture_from_url(url)
+	    self.photo = open(url)
+	end
 	
 	def addSubGroup!(subgroup)
 		associations.create!(:subgroup_id => subgroup.id)

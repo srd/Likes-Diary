@@ -14,44 +14,22 @@
 			<div class="upload" style="width: inherit; height: auto; overflow:auto; margin: 5px 0 5px 0;">
 				<table>
 					<tr>
-						<%= form_tag({:controller => 'products', :action => 'add_image'}, :target => "upload_frame", :id => "image_form", :multipart => true) do %>
-						<!-- <form target="upload_frame" action="/products/add_image" id="upload_form" method="post" enctype="multipart/form-data"> -->
+						<form target="upload_frame" action="/products/add_image" id="upload_form" method="post" enctype="multipart/form-data">
 						<td><p style="vertical-align: middle; padding-top: 10px;">
 							<label>From</label> <label style="cursor: pointer;" onclick="show_link();" for="link">Web</label>&nbsp;
 							<b><label>|</label></b>&nbsp;
-							<%= label_tag(:file_chosen, "Upload", :style => "cursor: pointer;", :onclick => "show_upload();") %>
+							<!--<%= f.label :photo, "Upload", :style => "cursor: pointer;", :onclick => "show_upload();" %>-->
+							<label onclick="show_upload();" for="product_photo">Upload</label>
 						</p>
 						</td>
 						<td><p style="vertical-align: middle;">
 							<input type="text" name="link" id="link" placeholder="http://">
-							<script type="text/javascript">
-									$("#link").keyup( function(event){
-										if(event.keyCode == '13') {
-											var url = $("#link").val();
-											$("#preview_image").attr("src",url);
-											$("#link_img_src").attr("value",url);
-										};
-									})
-							</script>
-							<%= file_field_tag('photo', :class => "product_photo", :id => "file_chosen", :style => "display: none;") %>
-							<!-- <input type="file" name="product_photo" id="product_photo" style="display: none;"> -->
-							<!-- <input type="submit"> -->
-							<%= submit_tag("Ok", :class => "product_photo", :style => "display: none;") %>
+							<!--<%= f.file_field :photo, :style => "display: none;" %>-->
+							<input type="file" name="product_photo" id="product_photo" style="display: none;">
+							<input type="submit">
 						</p></td>
-						<% end %>
+						</form>
 						<iframe id="upload_frame" name="upload_frame" src="hello.html" style="display: none"></iframe>
-						<script type="text/javascript">
-							$("#file_chosen").change(function() {
-								$("#image_form").submit();
-							});
-							$("#upload_frame").load(function(){
-								if($("#upload_frame").contents().find("img").length != 0) {
-									var src = $("#upload_frame").contents().find("img").attr("src");
-									$("#preview_image").attr("src",src);
-									$("#img_src").attr("value",src);
-								}
-							});
-						</script>
 					 </tr>
 				</table>
 			</div>
@@ -59,13 +37,12 @@
 			<div style="width: inherit; padding: 20px 0 10px 0;">
 				<div class="box1" style="width: 150px; height: auto;";>
 					<div style="width: 150px; height: auto;">
-						<img src="#" width="150px" height="150px" id="preview_image"/>
+						<img src="#" width="150px" height="150px" />
 					</div>
 					<div style="width: 150px; height: auto; padding: 5px 0 0 10px;">
 					</div>
 				</div>
-				<input type="hidden" id = "img_src" name="photo" />
-				<input type="hidden" id = "link_img_src" name="link" />
+
 				<div class="box1" style="width: 300px; min-height: 138px;">
 				  <%= render 'shared/error_messages', :object => f.object %>
 				  <%= render :partial => 'form', :object => f %>

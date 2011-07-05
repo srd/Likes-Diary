@@ -1,11 +1,48 @@
-<div>
-  <%= form.label :productname %>
-  <%= form.text_field :productname %>
+<div style="width: 326px; height: auto; overflow: auto">
+	<table class="popup_add_box">
+	<tr>
+		<td style="text-align: right; cursor:pointer;"><%= form.label :category %></td>
+		<td>
+			<%= form.select(:category, [["Choose","0"],["Book","1"],["Mobile","2"],["Music","3"],["Computer Games","4"],["Beverages","5"]],{}, {:onchange => "show_selected();"}) %>
+		</td>
+	</tr>
+	<tr id="book" style="display: none">
+		<td style="text-align: right; cursor:pointer;"><%= label(:book, :author) %></td>
+		<td><%= text_field(:book, :author) %></td>
+	</tr>
+	<tr id="mobile" style="display: none">
+		<td style="text-align: right; cursor:pointer;"><%= label(:mobile, :company) %></td>
+		<td><%= text_field(:mobile, :company) %></td>
+	</tr>
+	<tr id="music" style="display: none">
+		<td style="text-align: right; cursor:pointer;"><%= label(:musics, :album) %></td>
+		<td><%= text_field(:music, :album) %></td>
+	</tr>
+	<tr id="music" style="display: none">
+		<td style="text-align: right; cursor:pointer;"><%= label(:musics, :artist) %></td>
+		<td><%= text_field(:music, :artist) %></td>
+	</tr>
+	<tr id="games" style="display: none">
+		<td style="text-align: right; cursor:pointer;"><%= label(:compgames, :company) %></td>
+		<td><%= text_field(:compgame, :company) %></td>
+	</tr>
+	<tr id="beverages" style="display: none">
+		<td style="text-align: right; cursor:pointer;"><%= label(:beverages, :company) %></td>
+		<td><%= text_field(:beverage, :company) %></td>
+	</tr>
+	<tr>
+		<td style="text-align: right; cursor:pointer;"><%= form.label :productname,"Title" %></td>
+		<td><%= form.text_field :productname %></td>
+	</tr>
+	<tr>
+		<td style="text-align: right; cursor:pointer;"><%= form.label :tags %></td>
+		<td><%= form.text_field :tags %></td>
+	</tr>
+	<tr>
+		<td style="text-align: right; cursor:pointer;"><%= form.label :details, "Description" %></td>
+		<td><%= form.text_area  :details, :size => "30x4" %></td>
+	</tr>
+	</table>
+
 </div>
-<div>
-  <%= form.label :details %>
-  <%= form.text_area :details %>
-</div>
-<div>
-	<%= form.file_field :photo %>
-</div>
+
